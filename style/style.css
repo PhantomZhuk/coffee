@@ -1,7 +1,9 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Montserrat";
 }
 
 .wrap {
@@ -14,14 +16,13 @@
 .wrap .stratPage {
   width: 100%;
   height: 100vh;
-  background-image: url();
   background-position: center;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.wrap .stratPage .coffeeMashineContainer {
+.wrap .stratPage .coffeeMaсhineContainer {
   width: 100%;
   height: 700px;
   overflow: hidden;
@@ -29,22 +30,170 @@
   justify-content: space-around;
   align-items: center;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_1500_box {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box {
   width: 650px;
   height: 750px;
-  background-color: green;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 50px 0;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_3000_box {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .lock {
+  position: absolute;
   width: 420px;
   height: 600px;
-  background-color: green;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 102px;
+  color: #fff;
+  z-index: 3;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .coffeeContainer {
+  width: 300px;
+  height: 20px;
+  background-color: #333;
+  border-radius: 40px 40px 0 0;
+  margin-top: 30px;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock {
+  width: 600px;
+  height: 600px;
+  background-color: #333;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .topContainer {
+  width: 100%;
+  height: 150px;
+  background-color: #333;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 1px 5px 0px #656565;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .topContainer .screenContainer {
+  width: 70%;
+  height: 110px;
+  background-color: #000;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 1px #656565;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .mainContainer {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .mainContainer .waterContainer {
+  width: 170px;
+  height: 400px;
+  background-color: #7f7f7f;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .mainContainer .waterContainer .waterBox {
+  width: 90%;
+  height: 90%;
+  background-color: #6889c0;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .mainContainer .waterContainer .waterBox .water {
+  width: 100%;
+  height: 50%;
+  background-color: #8ab5ff;
+  border-radius: 10px;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .mainContainer .outletСontainer {
+  width: 220px;
+  height: 415px;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .mainContainer .outletСontainer .block {
+  width: 180px;
+  height: 100px;
+  background-color: #333;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 1px 5px 0 #555555;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .mainContainer .outletСontainer .block2 {
+  width: 70px;
+  height: 20px;
+  background-color: #595959;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 1px 5px 0 #555555;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .mainContainer .outletСontainer .block3 {
+  width: 30px;
+  height: 40px;
+  background-color: #7f7f7f;
+  border-radius: 0 0 5px 5px;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .mainContainer .outletСontainer .glosseContainer {
+  width: 100%;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 10px;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .mainContainer .outletСontainer .glosseContainer .platform {
+  width: 180px;
+  height: 30px;
+  background-color: #555555;
+  border-radius: 0 0 100px 100px;
+  box-shadow: 0 1px 5px 0 #555555;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .mainContainer .milkContainer {
+  width: 170px;
+  height: 400px;
+  background-color: #7f7f7f;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .mainContainer .milkContainer .milkBox {
+  width: 90%;
+  height: 90%;
+  background-color: #647593;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-end;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .mainContainer .milkContainer .milkBox .milk {
+  width: 100%;
+  height: 50%;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_1500_box .mainBlock .bottomBlock {
+  width: 100%;
+  height: 30px;
+  background-color: #333;
+  box-shadow: 0 -1px 10px 0 #999;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_3000_box {
   width: 420px;
   height: 600px;
   display: flex;
@@ -53,13 +202,33 @@
   align-items: center;
   padding: 50px 0;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .coffeeContainer {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box {
+  width: 420px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 0;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .lock {
+  position: absolute;
+  width: 420px;
+  height: 600px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 102px;
+  color: #fff;
+  z-index: 3;
+}
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .coffeeContainer {
   width: 210px;
   height: 20px;
   background-color: #333;
   border-radius: 40px 40px 0 0;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock {
   width: 420px;
   height: 480px;
   background-color: #333;
@@ -69,7 +238,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .topContainer {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .topContainer {
   width: 100%;
   height: 100px;
   background-color: #333;
@@ -80,21 +249,26 @@
   justify-content: center;
   align-items: center;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .topContainer .screenContainer {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .topContainer .screenContainer {
   width: 70%;
   height: 70px;
   background-color: #000;
   border-radius: 10px;
   box-shadow: 0 0 5px 1px #656565;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .container {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .mainContainer {
   width: 100%;
   height: 400px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .container .waterContainer {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .mainContainer .waterContainer {
   width: 150px;
   height: 340px;
   background-color: #7f7f7f;
@@ -103,7 +277,7 @@
   justify-content: center;
   align-items: center;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .container .waterContainer .waterBox {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .mainContainer .waterContainer .waterBox {
   width: 90%;
   height: 90%;
   background-color: #6889c0;
@@ -111,13 +285,13 @@
   display: flex;
   align-items: flex-end;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .container .waterContainer .waterBox .water {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .mainContainer .waterContainer .waterBox .water {
   width: 100%;
   height: 50%;
   background-color: #8ab5ff;
   border-radius: 10px;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .container .container {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .mainContainer .outletСontainer {
   width: 180px;
   height: 350px;
   background-color: #333;
@@ -126,27 +300,27 @@
   justify-content: space-between;
   align-items: center;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .container .container .block {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .mainContainer .outletСontainer .block {
   width: 120px;
   height: 100px;
   background-color: #333;
   border-radius: 0 0 10px 10px;
   box-shadow: 0 1px 5px 0 #555555;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .container .container .block2 {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .mainContainer .outletСontainer .block2 {
   width: 70px;
   height: 20px;
   background-color: #595959;
   border-radius: 0 0 5px 5px;
   box-shadow: 0 1px 5px 0 #555555;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .container .container .block3 {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .mainContainer .outletСontainer .block3 {
   width: 30px;
   height: 40px;
   background-color: #7f7f7f;
   border-radius: 0 0 5px 5px;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .container .container .glosseContainer {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .mainContainer .outletСontainer .glosseContainer {
   width: 100%;
   height: 260px;
   display: flex;
@@ -154,14 +328,14 @@
   align-items: flex-end;
   padding-bottom: 10px;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .container .container .glosseContainer .platform {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .mainContainer .outletСontainer .glosseContainer .platform {
   width: 150px;
   height: 30px;
   background-color: #555555;
   border-radius: 0 0 100px 100px;
   box-shadow: 0 1px 5px 0 #555555;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .container .milkContainer {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .mainContainer .milkContainer {
   width: 150px;
   height: 340px;
   background-color: #7f7f7f;
@@ -170,7 +344,7 @@
   justify-content: center;
   align-items: center;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .container .milkContainer .milkBox {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .mainContainer .milkContainer .milkBox {
   width: 90%;
   height: 90%;
   background-color: #647593;
@@ -178,13 +352,13 @@
   display: flex;
   align-items: flex-end;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .container .milkContainer .milkBox .milk {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .mainContainer .milkContainer .milkBox .milk {
   width: 100%;
   height: 50%;
   background-color: #f2f2f2;
   border-radius: 10px;
 }
-.wrap .stratPage .coffeeMashineContainer .coffeeMashine_5000_box .block .bottomBlock {
+.wrap .stratPage .coffeeMaсhineContainer .coffeeMaсhine_5000_box .mainBlock .bottomBlock {
   width: 100%;
   height: 30px;
   background-color: #333;

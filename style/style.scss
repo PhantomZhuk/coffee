@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat';
 }
 
 .wrap {
@@ -14,14 +15,13 @@
     .stratPage {
         width: 100%;
         height: 100vh;
-        background-image: url();
         background-position: center;
         background-size: cover;
         display: flex;
         justify-content: center;
         align-items: center;
 
-        .coffeeMashineContainer {
+        .coffeeMaсhineContainer {
             width: 100%;
             height: 700px;
             // background-color: red;
@@ -30,26 +30,190 @@
             justify-content: space-around;
             align-items: center;
 
-            .coffeeMashine_1500_box {
+            .coffeeMaсhine_1500_box {
                 width: 650px;
                 height: 750px;
-                background-color: green;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: center;
                 padding: 50px 0;
 
+                .lock {
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
 
+                .coffeeContainer {
+                    width: 300px;
+                    height: 20px;
+                    background-color: #333;
+                    border-radius: 40px 40px 0 0;
+                    margin-top: 30px;
+                }
+
+                .mainBlock {
+                    width: 600px;
+                    height: 600px;
+                    background-color: #333;
+                    border-radius: 20px 20px 0 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .topContainer {
+                        width: 100%;
+                        height: 150px;
+                        background-color: #333;
+                        border-radius: 20px 20px 0 0;
+                        box-shadow: 0 1px 5px 0px #656565;
+                        padding: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .screenContainer {
+                            width: 70%;
+                            height: 110px;
+                            background-color: #000;
+                            border-radius: 10px;
+                            box-shadow: 0 0 5px 1px #656565;
+                            color: #fff;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 24px;
+                        }
+                    }
+
+                    .mainContainer {
+                        width: 100%;
+                        height: 400px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .waterContainer {
+                            width: 170px;
+                            height: 400px;
+                            background-color: #7f7f7f;
+                            border-radius: 0 10px 10px 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .waterBox {
+                                width: 90%;
+                                height: 90%;
+                                background-color: #6889c0;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                .water {
+                                    width: 100%;
+                                    height: 50%;
+                                    background-color: #8ab5ff;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+
+                        .outletСontainer {
+                            width: 220px;
+                            height: 415px;
+                            background-color: #333;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .block {
+                                width: 180px;
+                                height: 100px;
+                                background-color: #333;
+                                border-radius: 0 0 10px 10px;
+                                box-shadow: 0 1px 5px 0 #555555;
+                            }
+
+                            .block2 {
+                                width: 70px;
+                                height: 20px;
+                                background-color: #595959;
+                                border-radius: 0 0 5px 5px;
+                                box-shadow: 0 1px 5px 0 #555555;
+                            }
+
+                            .block3 {
+                                width: 30px;
+                                height: 40px;
+                                background-color: #7f7f7f;
+                                border-radius: 0 0 5px 5px;
+                            }
+
+                            .glosseContainer {
+                                width: 100%;
+                                height: 260px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: flex-end;
+                                padding-bottom: 10px;
+
+                                .platform {
+                                    width: 180px;
+                                    height: 30px;
+                                    background-color: #555555;
+                                    border-radius: 0 0 100px 100px;
+                                    box-shadow: 0 1px 5px 0 #555555;
+                                }
+                            }
+                        }
+
+                        .milkContainer {
+                            width: 170px;
+                            height: 400px;
+                            background-color: #7f7f7f;
+                            border-radius: 10px 0 0 10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .milkBox {
+                                width: 90%;
+                                height: 90%;
+                                background-color: #647593;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                .milk {
+                                    width: 100%;
+                                    height: 50%;
+                                    background-color: #f2f2f2;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    .bottomBlock {
+                        width: 100%;
+                        height: 30px;
+                        background-color: #333;
+                        box-shadow: 0 -1px 10px 0 #999;
+                    }
+                }
             }
 
-            .coffeeMashine_3000_box {
-                width: 420px;
-                height: 600px;
-                background-color: green;
-            }
-
-            .coffeeMashine_5000_box {
+            .coffeeMaсhine_3000_box {
                 width: 420px;
                 height: 600px;
                 // background-color: green;
@@ -58,6 +222,33 @@
                 justify-content: space-between;
                 align-items: center;
                 padding: 50px 0;
+                // filter: brightness(0.5);
+
+                
+            }
+
+            .coffeeMaсhine_5000_box {
+                width: 420px;
+                height: 600px;
+                // background-color: green;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 50px 0;
+                // filter: brightness(0.5);
+
+                .lock {
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
 
                 .coffeeContainer {
                     width: 210px;
@@ -67,7 +258,7 @@
                     // margin-top: 30px;
                 }
 
-                .block {
+                .mainBlock {
                     width: 420px;
                     height: 480px;
                     background-color: #333;
@@ -94,10 +285,15 @@
                             background-color: #000;
                             border-radius: 10px;
                             box-shadow: 0 0 5px 1px #656565;
+                            color: #fff;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 24px;
                         }
                     }
 
-                    .container {
+                    .mainContainer {
                         width: 100%;
                         height: 400px;
                         display: flex;
@@ -130,7 +326,7 @@
                             }
                         }
 
-                        .container {
+                        .outletСontainer {
                             width: 180px;
                             height: 350px;
                             background-color: #333;
@@ -214,164 +410,6 @@
                         box-shadow: 0 -1px 10px 0 #999;
                     }
                 }
-
-
-                  //     .coffeeContainer {
-                //         width: 300px;
-                //         height: 20px;
-                //         background-color: #333;
-                //         border-radius: 40px 40px 0 0;
-                //         margin-top: 30px;
-                //     }
-
-                //     .block {
-                //         width: 600px;
-                //         height: 600px;
-                //         background-color: #333;
-                //         border-radius: 20px 20px 0 0;
-                //         display: flex;
-                //         flex-direction: column;
-                //         justify-content: space-between;
-                //         align-items: center;
-
-                //         .topContainer {
-                //             width: 100%;
-                //             height: 150px;
-                //             background-color: #333;
-                //             border-radius: 20px 20px 0 0;
-                //             box-shadow: 0 1px 5px 0px #656565;
-                //             padding: 20px;
-                //             display: flex;
-                //             justify-content: center;
-                //             align-items: center;
-
-                //             .screenContainer {
-                //                 width: 70%;
-                //                 height: 110px;
-                //                 background-color: #000;
-                //                 border-radius: 10px;
-                //                 box-shadow: 0 0 5px 1px #656565;
-                //             }
-                //         }
-
-                //         .container {
-                //             width: 100%;
-                //             height: 400px;
-                //             display: flex;
-                //             justify-content: space-between;
-                //             align-items: center;
-
-                //             .waterContainer {
-                //                 width: 170px;
-                //                 height: 400px;
-                //                 background-color: #7f7f7f;
-                //                 border-radius: 0 10px 10px 0;
-                //                 display: flex;
-                //                 justify-content: center;
-                //                 align-items: center;
-
-                //                 .waterBox {
-                //                     width: 90%;
-                //                     height: 90%;
-                //                     background-color: #6889c0;
-                //                     border-radius: 10px;
-                //                     display: flex;
-                //                     align-items: flex-end;
-
-                //                     .water {
-                //                         width: 100%;
-                //                         height: 50%;
-                //                         background-color: #8ab5ff;
-                //                         border-radius: 10px;
-                //                     }
-                //                 }
-                //             }
-
-                //             .container {
-                //                 width: 220px;
-                //                 height: 415px;
-                //                 background-color: #333;
-                //                 display: flex;
-                //                 flex-direction: column;
-                //                 justify-content: space-between;
-                //                 align-items: center;
-
-                //                 .block {
-                //                     width: 180px;
-                //                     height: 100px;
-                //                     background-color: #333;
-                //                     border-radius: 0 0 10px 10px;
-                //                     box-shadow: 0 1px 5px 0 #555555;
-                //                 }
-
-                //                 .block2 {
-                //                     width: 70px;
-                //                     height: 20px;
-                //                     background-color: #595959;
-                //                     border-radius: 0 0 5px 5px;
-                //                     box-shadow: 0 1px 5px 0 #555555;
-                //                 }
-
-                //                 .block3 {
-                //                     width: 30px;
-                //                     height: 40px;
-                //                     background-color: #7f7f7f;
-                //                     border-radius: 0 0 5px 5px;
-                //                 }
-
-                //                 .glosseContainer {
-                //                     width: 100%;
-                //                     height: 260px;
-                //                     display: flex;
-                //                     justify-content: center;
-                //                     align-items: flex-end;
-                //                     padding-bottom: 10px;
-
-                //                     .platform {
-                //                         width: 180px;
-                //                         height: 30px;
-                //                         background-color: #555555;
-                //                         border-radius: 0 0 100px 100px;
-                //                         box-shadow: 0 1px 5px 0 #555555;
-                //                     }
-                //                 }
-                //             }
-
-                //             .milkContainer {
-                //                 width: 170px;
-                //                 height: 400px;
-                //                 background-color: #7f7f7f;
-                //                 border-radius: 10px 0 0 10px;
-                //                 display: flex;
-                //                 justify-content: center;
-                //                 align-items: center;
-
-                //                 .milkBox {
-                //                     width: 90%;
-                //                     height: 90%;
-                //                     background-color: #647593;
-                //                     border-radius: 10px;
-                //                     display: flex;
-                //                     align-items: flex-end;
-
-                //                     .milk {
-                //                         width: 100%;
-                //                         height: 50%;
-                //                         background-color: #f2f2f2;
-                //                         border-radius: 10px;
-                //                     }
-                //                 }
-                //             }
-                //         }
-
-                //         .bottomBlock {
-                //             width: 100%;
-                //             height: 30px;
-                //             background-color: #333;
-                //             box-shadow: 0 -1px 10px 0 #999;
-                //         }
-                //     }
-                // }
             }
         }
     }
