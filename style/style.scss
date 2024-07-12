@@ -24,13 +24,13 @@
         .coffeeMachineContainer {
             width: 100%;
             height: 700px;
-            // background-color: red;
             overflow: hidden;
             display: flex;
             justify-content: space-around;
             align-items: center;
+            perspective: 600px;
 
-            .coffeeMachine_1500_box {
+            .coffeeMachine_1500_box_center {
                 width: 650px;
                 height: 750px;
                 display: flex;
@@ -38,12 +38,27 @@
                 justify-content: space-between;
                 align-items: center;
                 padding: 50px 0;
+                transform: translate3d(-70px, 0, 0);
+                transition: 0.5s;
+                z-index: 2;
 
-                .lock {
+                .lockNone {
+                    display: none;
                     position: absolute;
                     width: 420px;
                     height: 600px;
-                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .lockFlex {
+                    display: flex;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
                     justify-content: center;
                     align-items: center;
                     font-size: 102px;
@@ -213,22 +228,34 @@
                 }
             }
 
-            .coffeeMachine_3000_box {
-                width: 420px;
-                height: 600px;
-                // background-color: green;
+            .coffeeMachine_1500_box_right {
+                width: 650px;
+                height: 750px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: center;
                 padding: 50px 0;
-                // filter: brightness(0.5);
+                transform: translate3d(750px, 0, -250px);
+                transition: 0.5s;
 
-                .lock {
+                .lockNone {
+                    display: none;
                     position: absolute;
                     width: 420px;
                     height: 600px;
-                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .lockFlex {
+                    display: flex;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
                     justify-content: center;
                     align-items: center;
                     font-size: 102px;
@@ -237,16 +264,16 @@
                 }
 
                 .coffeeContainer {
-                    width: 210px;
+                    width: 300px;
                     height: 20px;
                     background-color: #333;
                     border-radius: 40px 40px 0 0;
-                    // margin-top: 30px;
+                    margin-top: 30px;
                 }
 
                 .mainBlock {
-                    width: 420px;
-                    height: 480px;
+                    width: 600px;
+                    height: 600px;
                     background-color: #333;
                     border-radius: 20px 20px 0 0;
                     display: flex;
@@ -256,7 +283,7 @@
 
                     .topContainer {
                         width: 100%;
-                        height: 100px;
+                        height: 150px;
                         background-color: #333;
                         border-radius: 20px 20px 0 0;
                         box-shadow: 0 1px 5px 0px #656565;
@@ -267,7 +294,7 @@
 
                         .screenContainer {
                             width: 70%;
-                            height: 70px;
+                            height: 110px;
                             background-color: #000;
                             border-radius: 10px;
                             box-shadow: 0 0 5px 1px #656565;
@@ -287,8 +314,8 @@
                         align-items: center;
 
                         .waterContainer {
-                            width: 150px;
-                            height: 340px;
+                            width: 170px;
+                            height: 400px;
                             background-color: #7f7f7f;
                             border-radius: 0 10px 10px 0;
                             display: flex;
@@ -313,8 +340,8 @@
                         }
 
                         .outletСontainer {
-                            width: 180px;
-                            height: 350px;
+                            width: 220px;
+                            height: 415px;
                             background-color: #333;
                             display: flex;
                             flex-direction: column;
@@ -322,7 +349,7 @@
                             align-items: center;
 
                             .block {
-                                width: 120px;
+                                width: 180px;
                                 height: 100px;
                                 background-color: #333;
                                 border-radius: 0 0 10px 10px;
@@ -353,7 +380,7 @@
                                 padding-bottom: 10px;
 
                                 .platform {
-                                    width: 150px;
+                                    width: 180px;
                                     height: 30px;
                                     background-color: #555555;
                                     border-radius: 0 0 100px 100px;
@@ -363,8 +390,8 @@
                         }
 
                         .milkContainer {
-                            width: 150px;
-                            height: 340px;
+                            width: 170px;
+                            height: 400px;
                             background-color: #7f7f7f;
                             border-radius: 10px 0 0 10px;
                             display: flex;
@@ -398,22 +425,34 @@
                 }
             }
 
-            .coffeeMachine_5000_box {
-                width: 420px;
-                height: 600px;
-                // background-color: green;
+            .coffeeMachine_1500_box_left {
+                width: 650px;
+                height: 750px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: center;
                 padding: 50px 0;
-                // filter: brightness(0.5);
+                transform: translate3d(-900px, 0, -250px);
+                transition: 0.5s;
 
-                .lock {
+                .lockNone {
+                    display: none;
                     position: absolute;
                     width: 420px;
                     height: 600px;
-                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .lockFlex {
+                    display: flex;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
                     justify-content: center;
                     align-items: center;
                     font-size: 102px;
@@ -422,16 +461,16 @@
                 }
 
                 .coffeeContainer {
-                    width: 210px;
+                    width: 300px;
                     height: 20px;
                     background-color: #333;
                     border-radius: 40px 40px 0 0;
-                    // margin-top: 30px;
+                    margin-top: 30px;
                 }
 
                 .mainBlock {
-                    width: 420px;
-                    height: 480px;
+                    width: 600px;
+                    height: 600px;
                     background-color: #333;
                     border-radius: 20px 20px 0 0;
                     display: flex;
@@ -441,7 +480,7 @@
 
                     .topContainer {
                         width: 100%;
-                        height: 100px;
+                        height: 150px;
                         background-color: #333;
                         border-radius: 20px 20px 0 0;
                         box-shadow: 0 1px 5px 0px #656565;
@@ -452,7 +491,7 @@
 
                         .screenContainer {
                             width: 70%;
-                            height: 70px;
+                            height: 110px;
                             background-color: #000;
                             border-radius: 10px;
                             box-shadow: 0 0 5px 1px #656565;
@@ -472,8 +511,8 @@
                         align-items: center;
 
                         .waterContainer {
-                            width: 150px;
-                            height: 340px;
+                            width: 170px;
+                            height: 400px;
                             background-color: #7f7f7f;
                             border-radius: 0 10px 10px 0;
                             display: flex;
@@ -498,8 +537,8 @@
                         }
 
                         .outletСontainer {
-                            width: 180px;
-                            height: 350px;
+                            width: 220px;
+                            height: 415px;
                             background-color: #333;
                             display: flex;
                             flex-direction: column;
@@ -507,7 +546,7 @@
                             align-items: center;
 
                             .block {
-                                width: 120px;
+                                width: 180px;
                                 height: 100px;
                                 background-color: #333;
                                 border-radius: 0 0 10px 10px;
@@ -538,7 +577,7 @@
                                 padding-bottom: 10px;
 
                                 .platform {
-                                    width: 150px;
+                                    width: 180px;
                                     height: 30px;
                                     background-color: #555555;
                                     border-radius: 0 0 100px 100px;
@@ -548,8 +587,1216 @@
                         }
 
                         .milkContainer {
-                            width: 150px;
-                            height: 340px;
+                            width: 170px;
+                            height: 400px;
+                            background-color: #7f7f7f;
+                            border-radius: 10px 0 0 10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .milkBox {
+                                width: 90%;
+                                height: 90%;
+                                background-color: #647593;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                .milk {
+                                    width: 100%;
+                                    height: 50%;
+                                    background-color: #f2f2f2;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    .bottomBlock {
+                        width: 100%;
+                        height: 30px;
+                        background-color: #333;
+                        box-shadow: 0 -1px 10px 0 #999;
+                    }
+                }
+            }
+
+            .coffeeMachine_3000_box_center {
+                width: 650px;
+                height: 750px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 50px 0;
+                transform: translate3d(-670px, 0, 0);
+                transition: 0.5s;
+                z-index: 2;
+
+                .lockNone {
+                    display: none;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .lockFlex {
+                    display: flex;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .lockNone {
+                    display: none;
+                }
+
+                .lockFlex {
+                    display: flex;
+                }
+
+                .coffeeContainer {
+                    width: 300px;
+                    height: 20px;
+                    background-color: #333;
+                    border-radius: 40px 40px 0 0;
+                    margin-top: 30px;
+                }
+
+                .mainBlock {
+                    width: 600px;
+                    height: 600px;
+                    background-color: #333;
+                    border-radius: 20px 20px 0 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .topContainer {
+                        width: 100%;
+                        height: 150px;
+                        background-color: #333;
+                        border-radius: 20px 20px 0 0;
+                        box-shadow: 0 1px 5px 0px #656565;
+                        padding: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .screenContainer {
+                            width: 70%;
+                            height: 110px;
+                            background-color: #000;
+                            border-radius: 10px;
+                            box-shadow: 0 0 5px 1px #656565;
+                            color: #fff;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 24px;
+                        }
+                    }
+
+                    .mainContainer {
+                        width: 100%;
+                        height: 400px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .waterContainer {
+                            width: 170px;
+                            height: 400px;
+                            background-color: #7f7f7f;
+                            border-radius: 0 10px 10px 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .waterBox {
+                                width: 90%;
+                                height: 90%;
+                                background-color: #6889c0;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                .water {
+                                    width: 100%;
+                                    height: 50%;
+                                    background-color: #8ab5ff;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+
+                        .outletСontainer {
+                            width: 220px;
+                            height: 415px;
+                            background-color: #333;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .block {
+                                width: 180px;
+                                height: 100px;
+                                background-color: #333;
+                                border-radius: 0 0 10px 10px;
+                                box-shadow: 0 1px 5px 0 #555555;
+                            }
+
+                            .block2 {
+                                width: 70px;
+                                height: 20px;
+                                background-color: #595959;
+                                border-radius: 0 0 5px 5px;
+                                box-shadow: 0 1px 5px 0 #555555;
+                            }
+
+                            .block3 {
+                                width: 30px;
+                                height: 40px;
+                                background-color: #7f7f7f;
+                                border-radius: 0 0 5px 5px;
+                            }
+
+                            .glosseContainer {
+                                width: 100%;
+                                height: 260px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: flex-end;
+                                padding-bottom: 10px;
+
+                                .platform {
+                                    width: 180px;
+                                    height: 30px;
+                                    background-color: #555555;
+                                    border-radius: 0 0 100px 100px;
+                                    box-shadow: 0 1px 5px 0 #555555;
+                                }
+                            }
+                        }
+
+                        .milkContainer {
+                            width: 170px;
+                            height: 400px;
+                            background-color: #7f7f7f;
+                            border-radius: 10px 0 0 10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .milkBox {
+                                width: 90%;
+                                height: 90%;
+                                background-color: #647593;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                .milk {
+                                    width: 100%;
+                                    height: 50%;
+                                    background-color: #f2f2f2;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    .bottomBlock {
+                        width: 100%;
+                        height: 30px;
+                        background-color: #333;
+                        box-shadow: 0 -1px 10px 0 #999;
+                    }
+                }
+            }
+
+            .coffeeMachine_3000_box_right {
+                width: 650px;
+                height: 750px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 50px 0;
+                transform: translate3d(150px, 0, -250px);
+                transition: 0.5s;
+
+                .lockNone {
+                    display: none;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .lockFlex {
+                    display: flex;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .lockNone {
+                    display: none;
+                }
+
+                .lockFlex {
+                    display: flex;
+                }
+
+                .coffeeContainer {
+                    width: 300px;
+                    height: 20px;
+                    background-color: #333;
+                    border-radius: 40px 40px 0 0;
+                    margin-top: 30px;
+                }
+
+                .mainBlock {
+                    width: 600px;
+                    height: 600px;
+                    background-color: #333;
+                    border-radius: 20px 20px 0 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .topContainer {
+                        width: 100%;
+                        height: 150px;
+                        background-color: #333;
+                        border-radius: 20px 20px 0 0;
+                        box-shadow: 0 1px 5px 0px #656565;
+                        padding: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .screenContainer {
+                            width: 70%;
+                            height: 110px;
+                            background-color: #000;
+                            border-radius: 10px;
+                            box-shadow: 0 0 5px 1px #656565;
+                            color: #fff;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 24px;
+                        }
+                    }
+
+                    .mainContainer {
+                        width: 100%;
+                        height: 400px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .waterContainer {
+                            width: 170px;
+                            height: 400px;
+                            background-color: #7f7f7f;
+                            border-radius: 0 10px 10px 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .waterBox {
+                                width: 90%;
+                                height: 90%;
+                                background-color: #6889c0;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                .water {
+                                    width: 100%;
+                                    height: 50%;
+                                    background-color: #8ab5ff;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+
+                        .outletСontainer {
+                            width: 220px;
+                            height: 415px;
+                            background-color: #333;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .block {
+                                width: 180px;
+                                height: 100px;
+                                background-color: #333;
+                                border-radius: 0 0 10px 10px;
+                                box-shadow: 0 1px 5px 0 #555555;
+                            }
+
+                            .block2 {
+                                width: 70px;
+                                height: 20px;
+                                background-color: #595959;
+                                border-radius: 0 0 5px 5px;
+                                box-shadow: 0 1px 5px 0 #555555;
+                            }
+
+                            .block3 {
+                                width: 30px;
+                                height: 40px;
+                                background-color: #7f7f7f;
+                                border-radius: 0 0 5px 5px;
+                            }
+
+                            .glosseContainer {
+                                width: 100%;
+                                height: 260px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: flex-end;
+                                padding-bottom: 10px;
+
+                                .platform {
+                                    width: 180px;
+                                    height: 30px;
+                                    background-color: #555555;
+                                    border-radius: 0 0 100px 100px;
+                                    box-shadow: 0 1px 5px 0 #555555;
+                                }
+                            }
+                        }
+
+                        .milkContainer {
+                            width: 170px;
+                            height: 400px;
+                            background-color: #7f7f7f;
+                            border-radius: 10px 0 0 10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .milkBox {
+                                width: 90%;
+                                height: 90%;
+                                background-color: #647593;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                .milk {
+                                    width: 100%;
+                                    height: 50%;
+                                    background-color: #f2f2f2;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    .bottomBlock {
+                        width: 100%;
+                        height: 30px;
+                        background-color: #333;
+                        box-shadow: 0 -1px 10px 0 #999;
+                    }
+                }
+            }
+
+            .coffeeMachine_3000_box_left {
+                width: 650px;
+                height: 750px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 50px 0;
+                transform: translate3d(-1500px, 0, -250px);
+                transition: 0.5s;
+
+                .lockNone {
+                    display: none;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .lockFlex {
+                    display: flex;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .lockNone {
+                    display: none;
+                }
+
+                .lockFlex {
+                    display: flex;
+                }
+
+                .coffeeContainer {
+                    width: 300px;
+                    height: 20px;
+                    background-color: #333;
+                    border-radius: 40px 40px 0 0;
+                    margin-top: 30px;
+                }
+
+                .mainBlock {
+                    width: 600px;
+                    height: 600px;
+                    background-color: #333;
+                    border-radius: 20px 20px 0 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .topContainer {
+                        width: 100%;
+                        height: 150px;
+                        background-color: #333;
+                        border-radius: 20px 20px 0 0;
+                        box-shadow: 0 1px 5px 0px #656565;
+                        padding: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .screenContainer {
+                            width: 70%;
+                            height: 110px;
+                            background-color: #000;
+                            border-radius: 10px;
+                            box-shadow: 0 0 5px 1px #656565;
+                            color: #fff;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 24px;
+                        }
+                    }
+
+                    .mainContainer {
+                        width: 100%;
+                        height: 400px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .waterContainer {
+                            width: 170px;
+                            height: 400px;
+                            background-color: #7f7f7f;
+                            border-radius: 0 10px 10px 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .waterBox {
+                                width: 90%;
+                                height: 90%;
+                                background-color: #6889c0;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                .water {
+                                    width: 100%;
+                                    height: 50%;
+                                    background-color: #8ab5ff;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+
+                        .outletСontainer {
+                            width: 220px;
+                            height: 415px;
+                            background-color: #333;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .block {
+                                width: 180px;
+                                height: 100px;
+                                background-color: #333;
+                                border-radius: 0 0 10px 10px;
+                                box-shadow: 0 1px 5px 0 #555555;
+                            }
+
+                            .block2 {
+                                width: 70px;
+                                height: 20px;
+                                background-color: #595959;
+                                border-radius: 0 0 5px 5px;
+                                box-shadow: 0 1px 5px 0 #555555;
+                            }
+
+                            .block3 {
+                                width: 30px;
+                                height: 40px;
+                                background-color: #7f7f7f;
+                                border-radius: 0 0 5px 5px;
+                            }
+
+                            .glosseContainer {
+                                width: 100%;
+                                height: 260px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: flex-end;
+                                padding-bottom: 10px;
+
+                                .platform {
+                                    width: 180px;
+                                    height: 30px;
+                                    background-color: #555555;
+                                    border-radius: 0 0 100px 100px;
+                                    box-shadow: 0 1px 5px 0 #555555;
+                                }
+                            }
+                        }
+
+                        .milkContainer {
+                            width: 170px;
+                            height: 400px;
+                            background-color: #7f7f7f;
+                            border-radius: 10px 0 0 10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .milkBox {
+                                width: 90%;
+                                height: 90%;
+                                background-color: #647593;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                .milk {
+                                    width: 100%;
+                                    height: 50%;
+                                    background-color: #f2f2f2;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    .bottomBlock {
+                        width: 100%;
+                        height: 30px;
+                        background-color: #333;
+                        box-shadow: 0 -1px 10px 0 #999;
+                    }
+                }
+            }
+
+            .coffeeMachine_5000_box_center {
+                width: 650px;
+                height: 750px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 50px 0;
+                transform: translate3d(530px, 0, 0);
+                transition: 0.5s;
+                z-index: 2;
+
+                .lockNone {
+                    display: none;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .lockFlex {
+                    display: flex;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .coffeeContainer {
+                    width: 300px;
+                    height: 20px;
+                    background-color: #333;
+                    border-radius: 40px 40px 0 0;
+                    margin-top: 30px;
+                }
+
+                .mainBlock {
+                    width: 600px;
+                    height: 600px;
+                    background-color: #333;
+                    border-radius: 20px 20px 0 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .topContainer {
+                        width: 100%;
+                        height: 150px;
+                        background-color: #333;
+                        border-radius: 20px 20px 0 0;
+                        box-shadow: 0 1px 5px 0px #656565;
+                        padding: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .screenContainer {
+                            width: 70%;
+                            height: 110px;
+                            background-color: #000;
+                            border-radius: 10px;
+                            box-shadow: 0 0 5px 1px #656565;
+                            color: #fff;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 24px;
+                        }
+                    }
+
+                    .mainContainer {
+                        width: 100%;
+                        height: 400px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .waterContainer {
+                            width: 170px;
+                            height: 400px;
+                            background-color: #7f7f7f;
+                            border-radius: 0 10px 10px 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .waterBox {
+                                width: 90%;
+                                height: 90%;
+                                background-color: #6889c0;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                .water {
+                                    width: 100%;
+                                    height: 50%;
+                                    background-color: #8ab5ff;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+
+                        .outletСontainer {
+                            width: 220px;
+                            height: 415px;
+                            background-color: #333;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .block {
+                                width: 180px;
+                                height: 100px;
+                                background-color: #333;
+                                border-radius: 0 0 10px 10px;
+                                box-shadow: 0 1px 5px 0 #555555;
+                            }
+
+                            .block2 {
+                                width: 70px;
+                                height: 20px;
+                                background-color: #595959;
+                                border-radius: 0 0 5px 5px;
+                                box-shadow: 0 1px 5px 0 #555555;
+                            }
+
+                            .block3 {
+                                width: 30px;
+                                height: 40px;
+                                background-color: #7f7f7f;
+                                border-radius: 0 0 5px 5px;
+                            }
+
+                            .glosseContainer {
+                                width: 100%;
+                                height: 260px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: flex-end;
+                                padding-bottom: 10px;
+
+                                .platform {
+                                    width: 180px;
+                                    height: 30px;
+                                    background-color: #555555;
+                                    border-radius: 0 0 100px 100px;
+                                    box-shadow: 0 1px 5px 0 #555555;
+                                }
+                            }
+                        }
+
+                        .milkContainer {
+                            width: 170px;
+                            height: 400px;
+                            background-color: #7f7f7f;
+                            border-radius: 10px 0 0 10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .milkBox {
+                                width: 90%;
+                                height: 90%;
+                                background-color: #647593;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                .milk {
+                                    width: 100%;
+                                    height: 50%;
+                                    background-color: #f2f2f2;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    .bottomBlock {
+                        width: 100%;
+                        height: 30px;
+                        background-color: #333;
+                        box-shadow: 0 -1px 10px 0 #999;
+                    }
+                }
+            }
+
+            .coffeeMachine_5000_box_right {
+                width: 650px;
+                height: 750px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 50px 0;
+                transform: translate3d(1300px, 0, -250px);
+                transition: 0.5s;
+
+                .lockNone {
+                    display: none;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .lockFlex {
+                    display: flex;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .coffeeContainer {
+                    width: 300px;
+                    height: 20px;
+                    background-color: #333;
+                    border-radius: 40px 40px 0 0;
+                    margin-top: 30px;
+                }
+
+                .mainBlock {
+                    width: 600px;
+                    height: 600px;
+                    background-color: #333;
+                    border-radius: 20px 20px 0 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .topContainer {
+                        width: 100%;
+                        height: 150px;
+                        background-color: #333;
+                        border-radius: 20px 20px 0 0;
+                        box-shadow: 0 1px 5px 0px #656565;
+                        padding: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .screenContainer {
+                            width: 70%;
+                            height: 110px;
+                            background-color: #000;
+                            border-radius: 10px;
+                            box-shadow: 0 0 5px 1px #656565;
+                            color: #fff;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 24px;
+                        }
+                    }
+
+                    .mainContainer {
+                        width: 100%;
+                        height: 400px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .waterContainer {
+                            width: 170px;
+                            height: 400px;
+                            background-color: #7f7f7f;
+                            border-radius: 0 10px 10px 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .waterBox {
+                                width: 90%;
+                                height: 90%;
+                                background-color: #6889c0;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                .water {
+                                    width: 100%;
+                                    height: 50%;
+                                    background-color: #8ab5ff;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+
+                        .outletСontainer {
+                            width: 220px;
+                            height: 415px;
+                            background-color: #333;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .block {
+                                width: 180px;
+                                height: 100px;
+                                background-color: #333;
+                                border-radius: 0 0 10px 10px;
+                                box-shadow: 0 1px 5px 0 #555555;
+                            }
+
+                            .block2 {
+                                width: 70px;
+                                height: 20px;
+                                background-color: #595959;
+                                border-radius: 0 0 5px 5px;
+                                box-shadow: 0 1px 5px 0 #555555;
+                            }
+
+                            .block3 {
+                                width: 30px;
+                                height: 40px;
+                                background-color: #7f7f7f;
+                                border-radius: 0 0 5px 5px;
+                            }
+
+                            .glosseContainer {
+                                width: 100%;
+                                height: 260px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: flex-end;
+                                padding-bottom: 10px;
+
+                                .platform {
+                                    width: 180px;
+                                    height: 30px;
+                                    background-color: #555555;
+                                    border-radius: 0 0 100px 100px;
+                                    box-shadow: 0 1px 5px 0 #555555;
+                                }
+                            }
+                        }
+
+                        .milkContainer {
+                            width: 170px;
+                            height: 400px;
+                            background-color: #7f7f7f;
+                            border-radius: 10px 0 0 10px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .milkBox {
+                                width: 90%;
+                                height: 90%;
+                                background-color: #647593;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                .milk {
+                                    width: 100%;
+                                    height: 50%;
+                                    background-color: #f2f2f2;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    .bottomBlock {
+                        width: 100%;
+                        height: 30px;
+                        background-color: #333;
+                        box-shadow: 0 -1px 10px 0 #999;
+                    }
+                }
+            }
+
+            .coffeeMachine_5000_box_left {
+                width: 650px;
+                height: 750px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 50px 0;
+                transform: translate3d(-300px, 0, -250px);
+                transition: 0.5s;
+
+                .lockNone {
+                    display: none;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .lockFlex {
+                    display: flex;
+                    position: absolute;
+                    width: 420px;
+                    height: 600px;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 102px;
+                    color: #fff;
+                    z-index: 3;
+                }
+
+                .coffeeContainer {
+                    width: 300px;
+                    height: 20px;
+                    background-color: #333;
+                    border-radius: 40px 40px 0 0;
+                    margin-top: 30px;
+                }
+
+                .mainBlock {
+                    width: 600px;
+                    height: 600px;
+                    background-color: #333;
+                    border-radius: 20px 20px 0 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .topContainer {
+                        width: 100%;
+                        height: 150px;
+                        background-color: #333;
+                        border-radius: 20px 20px 0 0;
+                        box-shadow: 0 1px 5px 0px #656565;
+                        padding: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .screenContainer {
+                            width: 70%;
+                            height: 110px;
+                            background-color: #000;
+                            border-radius: 10px;
+                            box-shadow: 0 0 5px 1px #656565;
+                            color: #fff;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 24px;
+                        }
+                    }
+
+                    .mainContainer {
+                        width: 100%;
+                        height: 400px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .waterContainer {
+                            width: 170px;
+                            height: 400px;
+                            background-color: #7f7f7f;
+                            border-radius: 0 10px 10px 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            .waterBox {
+                                width: 90%;
+                                height: 90%;
+                                background-color: #6889c0;
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: flex-end;
+
+                                .water {
+                                    width: 100%;
+                                    height: 50%;
+                                    background-color: #8ab5ff;
+                                    border-radius: 10px;
+                                }
+                            }
+                        }
+
+                        .outletСontainer {
+                            width: 220px;
+                            height: 415px;
+                            background-color: #333;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            .block {
+                                width: 180px;
+                                height: 100px;
+                                background-color: #333;
+                                border-radius: 0 0 10px 10px;
+                                box-shadow: 0 1px 5px 0 #555555;
+                            }
+
+                            .block2 {
+                                width: 70px;
+                                height: 20px;
+                                background-color: #595959;
+                                border-radius: 0 0 5px 5px;
+                                box-shadow: 0 1px 5px 0 #555555;
+                            }
+
+                            .block3 {
+                                width: 30px;
+                                height: 40px;
+                                background-color: #7f7f7f;
+                                border-radius: 0 0 5px 5px;
+                            }
+
+                            .glosseContainer {
+                                width: 100%;
+                                height: 260px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: flex-end;
+                                padding-bottom: 10px;
+
+                                .platform {
+                                    width: 180px;
+                                    height: 30px;
+                                    background-color: #555555;
+                                    border-radius: 0 0 100px 100px;
+                                    box-shadow: 0 1px 5px 0 #555555;
+                                }
+                            }
+                        }
+
+                        .milkContainer {
+                            width: 170px;
+                            height: 400px;
                             background-color: #7f7f7f;
                             border-radius: 10px 0 0 10px;
                             display: flex;
