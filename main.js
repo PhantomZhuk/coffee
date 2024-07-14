@@ -129,3 +129,25 @@ setInterval(() => {
     //     }
     // }
 }, 60000);
+
+if (electricity == `gridPower`){
+    $(`.socketWire`).css(`display`, `flex`);
+    $(`.powerStationWire`).css(`display`, `none`);
+    $(`.socket`).css(`background-color`, `#000`);
+}else if (electricity == `powerPlantElectricity`){
+    $(`.socketWire`).css(`display`, `none`);
+    $(`.powerStationWire`).css(`display`, `flex`);
+    $(`.socket`).css(`background-color`, `#333`);
+}
+
+setInterval(() => {
+    if (electricity == `gridPower`){
+        $(`.socketWire`).css(`display`, `flex`);
+        $(`.powerStationWire`).css(`display`, `none`);
+        $(`.socket`).css(`background-color`, `#000`);
+    }else if (electricity == `powerPlantElectricity`){
+        $(`.socketWire`).css(`display`, `none`);
+        $(`.powerStationWire`).css(`display`, `flex`);
+        $(`.socket`).css(`background-color`, `#333`);
+    }
+}, 60000);
