@@ -151,3 +151,38 @@ setInterval(() => {
         $(`.socket`).css(`background-color`, `#333`);
     }
 }, 60000);
+
+function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, milkAmount){
+    let startCoffeeMachine;
+
+    this.waterAmount = waterAmount;
+    this.milkAmount = milkAmount;
+
+    const WATER_HEAT_CAPACITY = 4200;
+    const MILK_HEAT_CAPACITY = 3900;
+
+    let getBoilWaterTime = function (){
+        let boilTimeWater = this.waterAmount * WATER_HEAT_CAPACITY * 80 / power
+        return boilTimeWater;
+    }.bind(this);
+
+    let getBoilMilkTime = function (){
+        let boilTimeMilk = this.milkAmount * MILK_HEAT_CAPACITY * 80 / power
+        return boilTimeMilk;
+    }.bind(this);
+
+    function onReady() {
+        alert(`Кава готова`);
+    }
+
+    this.run = function () {
+        let totalBoilTime = getBoilWaterTime() + getBoilMilkTime();
+        console.log(getBoilWaterTime()/ 1000);
+        console.log(getBoilMilkTime()/ 1000);
+        startCoffeeMachine = setTimeout(onReady, totalBoilTime);
+    }
+}
+
+let coffeeMachine = new CoffeeMachine(5000, 1000, 1000, 50, 50);
+
+coffeeMachine.run();
