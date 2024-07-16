@@ -16,19 +16,32 @@ $(`#coffeeMachine_1500`).click(() => {
     $(`#coffeeMachine_5000`).removeClass(`coffeeMachine_5000_box_center`).removeClass(`coffeeMachine_5000_box_right`).addClass(`coffeeMachine_5000_box_left`);
 });
 
+let coffeeMachinePower;
+let coffeeMachineWater;
+let coffeeMachineMilk;
+
 $(`#coffeeMachine_5000`).dblclick(() => {
     $(`.stratPage`).css(`display`, `none`);
     $(`.homePage`).css(`display`, `flex`);
+    coffeeMachinePower = 5000;
+    coffeeMachineWater = 2000;
+    coffeeMachineMilk = 2000;
 });
 
 $(`#coffeeMachine_1500`).dblclick(() => {
     $(`.stratPage`).css(`display`, `none`);
     $(`.homePage`).css(`display`, `flex`);
+    coffeeMachinePower = 1500;
+    coffeeMachineWater = 800;
+    coffeeMachineMilk = 800;
 });
 
 $(`#coffeeMachine_3000`).dblclick(() => {
     $(`.stratPage`).css(`display`, `none`);
     $(`.homePage`).css(`display`, `flex`);
+    coffeeMachinePower = 3000;
+    coffeeMachineWater = 1600;
+    coffeeMachineMilk = 1600;
 });
 
 let electricity = `gridPower`;//powerPlantElectricity
@@ -40,60 +53,60 @@ let minutes = date.getMinutes();
 if (presentDay == 0) {
     if (hours > 0 && hours < 6 || hours > 12 && hours < 16 || hours > 20 && hours < 22) {
         electricity = `powerPlantElectricity`;
-    }else {
+    } else {
         electricity = `gridPower`
     }
-}else if (presentDay == 1){
-    if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
+} else if (presentDay == 1) {
+    if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17 || hours > 19 && hours < 23) {
         electricity = `powerPlantElectricity`;
-    }else {
+    } else {
         electricity = `gridPower`
     }
 }
 // else if (presentDay == 2){
-    //     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-    //         electricity = `powerPlantElectricity`;
-    //     }else {
-    //         electricity = `gridPower`
-    //     }
-    // }else if (presentDay == 3){
-    //     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-    //         electricity = `powerPlantElectricity`;
-    //     }else {
-    //         electricity = `gridPower`
-    //     }
-    // }else if (presentDay == 4){
-    //     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-    //         electricity = `powerPlantElectricity`;
-    //     }else {
-    //         electricity = `gridPower`
-    //     }
-    // }else if (presentDay == 5){
-    //     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-    //         electricity = `powerPlantElectricity`;
-    //     }else {
-    //         electricity = `gridPower`
-    //     }
-    // }else if (presentDay == 6){
-    //     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-    //         electricity = `powerPlantElectricity`;
-    //     }else {
-    //         electricity = `gridPower`
-    //     }
-    // }
+//     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
+//         electricity = `powerPlantElectricity`;
+//     }else {
+//         electricity = `gridPower`
+//     }
+// }else if (presentDay == 3){
+//     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
+//         electricity = `powerPlantElectricity`;
+//     }else {
+//         electricity = `gridPower`
+//     }
+// }else if (presentDay == 4){
+//     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
+//         electricity = `powerPlantElectricity`;
+//     }else {
+//         electricity = `gridPower`
+//     }
+// }else if (presentDay == 5){
+//     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
+//         electricity = `powerPlantElectricity`;
+//     }else {
+//         electricity = `gridPower`
+//     }
+// }else if (presentDay == 6){
+//     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
+//         electricity = `powerPlantElectricity`;
+//     }else {
+//         electricity = `gridPower`
+//     }
+// }
 
 
 setInterval(() => {
     if (presentDay == 0) {
         if (hours > 0 && hours < 6 || hours > 12 && hours < 16 || hours > 20 && hours < 22) {
             electricity = `powerPlantElectricity`;
-        }else {
+        } else {
             electricity = `gridPower`
         }
-    }else if (presentDay == 1){
-        if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
+    } else if (presentDay == 1) {
+        if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17 || hours > 19 && hours < 23) {
             electricity = `powerPlantElectricity`;
-        }else {
+        } else {
             electricity = `gridPower`
         }
     }
@@ -130,29 +143,31 @@ setInterval(() => {
     // }
 }, 60000);
 
-if (electricity == `gridPower`){
+if (electricity == `gridPower`) {
     $(`.socketWire`).css(`display`, `flex`);
     $(`.powerStationWire`).css(`display`, `none`);
     $(`.socket`).css(`background-color`, `#000`);
-}else if (electricity == `powerPlantElectricity`){
+} else if (electricity == `powerPlantElectricity`) {
     $(`.socketWire`).css(`display`, `none`);
     $(`.powerStationWire`).css(`display`, `flex`);
     $(`.socket`).css(`background-color`, `#333`);
 }
 
 setInterval(() => {
-    if (electricity == `gridPower`){
+    if (electricity == `gridPower`) {
         $(`.socketWire`).css(`display`, `flex`);
         $(`.powerStationWire`).css(`display`, `none`);
         $(`.socket`).css(`background-color`, `#000`);
-    }else if (electricity == `powerPlantElectricity`){
+    } else if (electricity == `powerPlantElectricity`) {
         $(`.socketWire`).css(`display`, `none`);
         $(`.powerStationWire`).css(`display`, `flex`);
         $(`.socket`).css(`background-color`, `#333`);
     }
 }, 60000);
 
-function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, milkAmount){
+
+
+function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, milkAmount) {
     let startCoffeeMachine;
 
     this.waterAmount = waterAmount;
@@ -161,12 +176,12 @@ function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, mi
     const WATER_HEAT_CAPACITY = 4200;
     const MILK_HEAT_CAPACITY = 3900;
 
-    let getBoilWaterTime = function (){
+    let getBoilWaterTime = function () {
         let boilTimeWater = this.waterAmount * WATER_HEAT_CAPACITY * 80 / power
         return boilTimeWater;
     }.bind(this);
 
-    let getBoilMilkTime = function (){
+    let getBoilMilkTime = function () {
         let boilTimeMilk = this.milkAmount * MILK_HEAT_CAPACITY * 80 / power
         return boilTimeMilk;
     }.bind(this);
@@ -177,12 +192,79 @@ function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, mi
 
     this.run = function () {
         let totalBoilTime = getBoilWaterTime() + getBoilMilkTime();
-        console.log(getBoilWaterTime()/ 1000);
-        console.log(getBoilMilkTime()/ 1000);
+        console.log(getBoilWaterTime() / 1000);
+        console.log(getBoilMilkTime() / 1000);
         startCoffeeMachine = setTimeout(onReady, totalBoilTime);
+    }
+
+    this.stop = function () {
+        clearTimeout(startCoffeeMachine);
     }
 }
 
-let coffeeMachine = new CoffeeMachine(5000, 1000, 1000, 50, 50);
+let coffeeMachine = new CoffeeMachine(coffeeMachinePower, coffeeMachineWater, coffeeMachineMilk, 50, 50);
 
-coffeeMachine.run();
+// coffeeMachine.run();
+
+
+let coffee = [`Еспресо`, `Латте`, `Капучино`, `Американо`, `Мокко`];
+// let i = 0;
+
+// $(`.nameCoffee`).text(coffee[i]);
+
+// $(`.fa-caret-left`).click(() => {
+//     if (i < 1) {
+//         i = 4
+//         $(`.nameCoffee`).text(coffee[i]);
+//         console.log(i)
+//     } else if (i > -1) {
+//         $(`.nameCoffee`).text(coffee[i--]);
+//         console.log(i)
+//     }
+// });
+
+// $(`.fa-caret-right`).click(() => {
+//     if (i < coffee.length) {
+//         $(`.nameCoffee`).text(coffee[i++]);
+//         console.log(i)
+//     } else {
+//         i = 0
+//         $(`.nameCoffee`).text(coffee[i]);
+//         console.log(i)
+//     }
+// });
+
+$(`.nameCoffee`).text(`Еспресо`);
+
+$(`#coffeeRight`).click(() => {
+    if ($(`.nameCoffee`).text() == `Еспресо`){
+        $(`.nameCoffee`).text(`Латте`);
+    }else if ($(`.nameCoffee`).text() == `Латте`){
+        $(`.nameCoffee`).text(`Капучино`);
+    }else if ($(`.nameCoffee`).text() == `Капучино`){
+        $(`.nameCoffee`).text(`Американо`);
+    }else if ($(`.nameCoffee`).text() == `Американо`){
+        $(`.nameCoffee`).text(`Мокко`);
+    }else if ($(`.nameCoffee`).text() == `Мокко`){
+        $(`.nameCoffee`).text(`Еспресо`);
+    }
+});
+
+$(`#coffeeLeft`).click(() => {
+    if ($(`.nameCoffee`).text() == `Еспресо`){
+        $(`.nameCoffee`).text(`Мокко`);
+    }else if ($(`.nameCoffee`).text() == `Мокко`){
+        $(`.nameCoffee`).text(`Американо`);
+    }else if ($(`.nameCoffee`).text() == `Американо`){
+        $(`.nameCoffee`).text(`Капучино`);
+    }else if ($(`.nameCoffee`).text() == `Капучино`){
+        $(`.nameCoffee`).text(`Латте`);
+    }else if ($(`.nameCoffee`).text() == `Латте`){
+        $(`.nameCoffee`).text(`Еспресо`);
+    }   
+});
+
+$(`.coffeeConatiner`).click(()=>{
+    $(`.selectionScreen`).css(`display`, `none`)
+    $(`.sizeSelectionScreen`).css(`display`, `flex`)
+});
