@@ -1786,14 +1786,39 @@
   align-items: center;
   font-size: 16px;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .topContainer .screenContainer .sizeSelectionScreen {
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+}
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .topContainer .screenContainer .sizeSelectionScreen .chooseSize {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .topContainer .screenContainer .sizeSelectionScreen .chooseSize .cupSize {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #fff;
+}
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer {
   width: 100%;
   height: 400px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer .waterContainer {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer .waterContainer {
   width: 170px;
   height: 400px;
   background-color: #7f7f7f;
@@ -1802,7 +1827,7 @@
   justify-content: center;
   align-items: center;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer .waterContainer .waterBox {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer .waterContainer .waterBox {
   width: 90%;
   height: 90%;
   background-color: #6889c0;
@@ -1810,13 +1835,13 @@
   display: flex;
   align-items: flex-end;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer .waterContainer .waterBox .water {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer .waterContainer .waterBox .water {
   width: 100%;
   height: 350px;
   background-color: #8ab5ff;
   border-radius: 10px;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer .outletСontainer {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer .outletСontainer {
   width: 220px;
   height: 415px;
   background-color: #333;
@@ -1825,7 +1850,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer .outletСontainer .block {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer .outletСontainer .block {
   width: 180px;
   height: 50px;
   background-color: #333;
@@ -1833,7 +1858,7 @@
   box-shadow: 0 1px 5px 0 #555555;
   position: relative;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer .outletСontainer .block2 {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer .outletСontainer .block2 {
   width: 70px;
   height: 20px;
   background-color: #595959;
@@ -1842,7 +1867,7 @@
   margin-bottom: 40px;
   position: relative;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer .outletСontainer .block3 {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer .outletСontainer .block3 {
   width: 30px;
   height: 40px;
   background-color: #7f7f7f;
@@ -1850,7 +1875,7 @@
   position: relative;
   bottom: 42px;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer .outletСontainer .coffee {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer .outletСontainer .coffee {
   width: 30px;
   height: 100px;
   background-color: #6f4e37;
@@ -1858,7 +1883,7 @@
   margin-top: 100px;
   display: none;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer .outletСontainer .glosseContainer {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer .outletСontainer .glosseContainer {
   width: 100%;
   height: 260px;
   display: flex;
@@ -1867,7 +1892,7 @@
   align-items: center;
   padding-bottom: 10px;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer .outletСontainer .glosseContainer .cupСoffee {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer .outletСontainer .glosseContainer .cupСoffee {
   width: 300px;
   height: 250px;
   background-position: center;
@@ -1875,14 +1900,14 @@
   background-repeat: no-repeat;
   position: relative;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer .outletСontainer .glosseContainer .platform {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer .outletСontainer .glosseContainer .platform {
   width: 180px;
   height: 30px;
   background-color: #555555;
   border-radius: 0 0 100px 100px;
   box-shadow: 0 1px 5px 0 #555555;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer .milkContainer {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer .milkContainer {
   width: 170px;
   height: 400px;
   background-color: #7f7f7f;
@@ -1891,7 +1916,7 @@
   justify-content: center;
   align-items: center;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer .milkContainer .milkBox {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer .milkContainer .milkBox {
   width: 90%;
   height: 90%;
   background-color: #647593;
@@ -1899,19 +1924,19 @@
   display: flex;
   align-items: flex-end;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .mainContainer .milkContainer .milkBox .milk {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .mainContainer .milkContainer .milkBox .milk {
   width: 100%;
   height: 350px;
   background-color: #f2f2f2;
   border-radius: 10px;
 }
-.wrap .homePage .coffeeMachine .coffeeMachine_box .bottomBlock {
+.wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .bottomBlock {
   width: 100%;
   height: 30px;
   background-color: #333;
   box-shadow: 0 -1px 10px 0 #999;
 }
-.wrap .socketContainer {
+.wrap .homePage .socketContainer {
   width: 32%;
   height: 100vh;
   display: flex;
@@ -1919,14 +1944,14 @@
   align-items: flex-end;
   padding: 200px 0;
 }
-.wrap .socketContainer .socketWire {
+.wrap .homePage .socketContainer .socketWire {
   position: absolute;
   width: 400px;
   z-index: 2;
   margin: 0 190px -50px 0;
   display: flex;
 }
-.wrap .socketContainer .socketBox {
+.wrap .homePage .socketContainer .socketBox {
   width: 150px;
   height: 150px;
   background-color: #333;
@@ -1937,7 +1962,7 @@
   margin-left: 300px;
   z-index: 1;
 }
-.wrap .socketContainer .socketBox .socket {
+.wrap .homePage .socketContainer .socketBox .socket {
   width: 100px;
   height: 100px;
   background-color: #000;
@@ -1947,7 +1972,7 @@
   justify-content: space-around;
   align-items: center;
 }
-.wrap .socketContainer .socketBox .socket .colo {
+.wrap .homePage .socketContainer .socketBox .socket .colo {
   width: 20px;
   height: 20px;
   background-color: #000;

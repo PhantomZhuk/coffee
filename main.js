@@ -207,64 +207,59 @@ let coffeeMachine = new CoffeeMachine(coffeeMachinePower, coffeeMachineWater, co
 // coffeeMachine.run();
 
 
-let coffee = [`Еспресо`, `Латте`, `Капучино`, `Американо`, `Мокко`];
-// let i = 0;
-
-// $(`.nameCoffee`).text(coffee[i]);
-
-// $(`.fa-caret-left`).click(() => {
-//     if (i < 1) {
-//         i = 4
-//         $(`.nameCoffee`).text(coffee[i]);
-//         console.log(i)
-//     } else if (i > -1) {
-//         $(`.nameCoffee`).text(coffee[i--]);
-//         console.log(i)
-//     }
-// });
-
-// $(`.fa-caret-right`).click(() => {
-//     if (i < coffee.length) {
-//         $(`.nameCoffee`).text(coffee[i++]);
-//         console.log(i)
-//     } else {
-//         i = 0
-//         $(`.nameCoffee`).text(coffee[i]);
-//         console.log(i)
-//     }
-// });
-
 $(`.nameCoffee`).text(`Еспресо`);
 
 $(`#coffeeRight`).click(() => {
-    if ($(`.nameCoffee`).text() == `Еспресо`){
+    if ($(`.nameCoffee`).text() == `Еспресо`) {
         $(`.nameCoffee`).text(`Латте`);
-    }else if ($(`.nameCoffee`).text() == `Латте`){
+    } else if ($(`.nameCoffee`).text() == `Латте`) {
         $(`.nameCoffee`).text(`Капучино`);
-    }else if ($(`.nameCoffee`).text() == `Капучино`){
+    } else if ($(`.nameCoffee`).text() == `Капучино`) {
         $(`.nameCoffee`).text(`Американо`);
-    }else if ($(`.nameCoffee`).text() == `Американо`){
+    } else if ($(`.nameCoffee`).text() == `Американо`) {
         $(`.nameCoffee`).text(`Мокко`);
-    }else if ($(`.nameCoffee`).text() == `Мокко`){
+    } else if ($(`.nameCoffee`).text() == `Мокко`) {
         $(`.nameCoffee`).text(`Еспресо`);
     }
 });
 
 $(`#coffeeLeft`).click(() => {
-    if ($(`.nameCoffee`).text() == `Еспресо`){
+    if ($(`.nameCoffee`).text() == `Еспресо`) {
         $(`.nameCoffee`).text(`Мокко`);
-    }else if ($(`.nameCoffee`).text() == `Мокко`){
+    } else if ($(`.nameCoffee`).text() == `Мокко`) {
         $(`.nameCoffee`).text(`Американо`);
-    }else if ($(`.nameCoffee`).text() == `Американо`){
+    } else if ($(`.nameCoffee`).text() == `Американо`) {
         $(`.nameCoffee`).text(`Капучино`);
-    }else if ($(`.nameCoffee`).text() == `Капучино`){
+    } else if ($(`.nameCoffee`).text() == `Капучино`) {
         $(`.nameCoffee`).text(`Латте`);
-    }else if ($(`.nameCoffee`).text() == `Латте`){
+    } else if ($(`.nameCoffee`).text() == `Латте`) {
         $(`.nameCoffee`).text(`Еспресо`);
-    }   
+    }
 });
 
-$(`.coffeeConatiner`).click(()=>{
+$(`.coffeeConatiner`).click(() => {
     $(`.selectionScreen`).css(`display`, `none`)
     $(`.sizeSelectionScreen`).css(`display`, `flex`)
+});
+
+$(`.cupSize`).text(`150ml`);
+
+$(`#sizeLeft`).click(() => {
+    if ($(`.cupSize`).text() == `350ml`) {
+        $(`.cupSize`).text(`250ml`);
+    }else if ($(`.cupSize`).text() == `250ml`) {
+        $(`.cupSize`).text(`150ml`);
+    }else if ($(`.cupSize`).text() == `150ml`) {
+        $(`.cupSize`).text(`350ml`);
+    }
+});
+
+$(`#sizeRight`).click(() => {
+    if ($(`.cupSize`).text() == `150ml`) {
+        $(`.cupSize`).text(`250ml`);
+    }else if ($(`.cupSize`).text() == `250ml`) {
+        $(`.cupSize`).text(`350ml`);
+    }else if ($(`.cupSize`).text() == `350ml`) {
+        $(`.cupSize`).text(`150ml`);
+    }
 });
