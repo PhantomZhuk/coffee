@@ -24,24 +24,24 @@ $(`#coffeeMachine_5000`).dblclick(() => {
     $(`.stratPage`).css(`display`, `none`);
     $(`.homePage`).css(`display`, `flex`);
     coffeeMachinePower = 5000;
-    coffeeMachineWater = 2000;
-    coffeeMachineMilk = 2000;
+    coffeeMachineWater = 2100;
+    coffeeMachineMilk = 2100;
 });
 
 $(`#coffeeMachine_1500`).dblclick(() => {
     $(`.stratPage`).css(`display`, `none`);
     $(`.homePage`).css(`display`, `flex`);
     coffeeMachinePower = 1500;
-    coffeeMachineWater = 800;
-    coffeeMachineMilk = 800;
+    coffeeMachineWater = 700;
+    coffeeMachineMilk = 700;
 });
 
 $(`#coffeeMachine_3000`).dblclick(() => {
     $(`.stratPage`).css(`display`, `none`);
     $(`.homePage`).css(`display`, `flex`);
     coffeeMachinePower = 3000;
-    coffeeMachineWater = 1600;
-    coffeeMachineMilk = 1600;
+    coffeeMachineWater = 1400;
+    coffeeMachineMilk = 1400;
 });
 
 let electricity = `gridPower`;//powerPlantElectricity
@@ -165,35 +165,47 @@ setInterval(() => {
     }
 }, 60000);
 
-
+let totalBoilTime;
+let waterResidue;
+let milkResidue;
 
 function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, milkAmount) {
     let startCoffeeMachine;
 
     this.waterAmount = waterAmount;
     this.milkAmount = milkAmount;
+    this.totalWaterAmount = totalWaterAmount;
+    this.totalMilkAmount = totalMilkAmount;
+
+    waterResidue = this.totalWaterAmount - this.waterAmount
+    milkResidue = this.totalMilkAmount - this.milkAmount
+
+    console.log(waterResidue = waterResidue - this.waterAmount)
+    console.log(milkResidue = milkResidue - this.milkAmount)
 
     const WATER_HEAT_CAPACITY = 4200;
     const MILK_HEAT_CAPACITY = 3900;
 
     let getBoilWaterTime = function () {
-        let boilTimeWater = this.waterAmount * WATER_HEAT_CAPACITY * 80 / power
+        let boilTimeWater = this.waterAmount * WATER_HEAT_CAPACITY * 80 / power;
         return boilTimeWater;
     }.bind(this);
 
     let getBoilMilkTime = function () {
-        let boilTimeMilk = this.milkAmount * MILK_HEAT_CAPACITY * 80 / power
+        let boilTimeMilk = this.milkAmount * MILK_HEAT_CAPACITY * 80 / power;
         return boilTimeMilk;
     }.bind(this);
 
     function onReady() {
         alert(`Кава готова`);
+        $(`.startupScreen`).css(`display`, `none`)
+        $(`.selectionScreen`).css(`display`, `flex`)
+        $(`.play`).css(`display`, `flex`)
+        $(`.pause`).css(`display`, `none`)
     }
 
     this.run = function () {
-        let totalBoilTime = getBoilWaterTime() + getBoilMilkTime();
-        console.log(getBoilWaterTime() / 1000);
-        console.log(getBoilMilkTime() / 1000);
+        totalBoilTime = getBoilWaterTime() + getBoilMilkTime();
         startCoffeeMachine = setTimeout(onReady, totalBoilTime);
     }
 
@@ -201,8 +213,6 @@ function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, mi
         clearTimeout(startCoffeeMachine);
     }
 }
-
-let coffeeMachine = new CoffeeMachine(coffeeMachinePower, coffeeMachineWater, coffeeMachineMilk, 50, 50);
 
 // coffeeMachine.run();
 
@@ -247,9 +257,9 @@ $(`.cupSize`).text(`150ml`);
 $(`#sizeLeft`).click(() => {
     if ($(`.cupSize`).text() == `350ml`) {
         $(`.cupSize`).text(`250ml`);
-    }else if ($(`.cupSize`).text() == `250ml`) {
+    } else if ($(`.cupSize`).text() == `250ml`) {
         $(`.cupSize`).text(`150ml`);
-    }else if ($(`.cupSize`).text() == `150ml`) {
+    } else if ($(`.cupSize`).text() == `150ml`) {
         $(`.cupSize`).text(`350ml`);
     }
 });
@@ -257,9 +267,95 @@ $(`#sizeLeft`).click(() => {
 $(`#sizeRight`).click(() => {
     if ($(`.cupSize`).text() == `150ml`) {
         $(`.cupSize`).text(`250ml`);
-    }else if ($(`.cupSize`).text() == `250ml`) {
+    } else if ($(`.cupSize`).text() == `250ml`) {
         $(`.cupSize`).text(`350ml`);
-    }else if ($(`.cupSize`).text() == `350ml`) {
+    } else if ($(`.cupSize`).text() == `350ml`) {
         $(`.cupSize`).text(`150ml`);
+    }
+});
+
+$(`.chooseSize`).click(() => {
+    $(`.sizeSelectionScreen`).css(`display`, `none`)
+    $(`.startupScreen`).css(`display`, `flex`)
+});
+
+let water;
+let milk;
+
+let coffeeMachine; // Глобальна змінна для зберігання екземпляра CoffeeMachine
+
+$(`#progress-svg`).click(() => {
+    if ($('.play').css('display') === 'flex') {
+        $(`.play`).css(`display`, `none`)
+        $(`.pause`).css(`display`, `flex`)
+        
+        if ($(`.nameCoffee`).text() == `Еспресо`) {
+            if ($(`.cupSize`).text() == `150ml`) {
+                water = 150;
+                milk = 0;
+            } else if ($(`.cupSize`).text() == `250ml`) {
+                water = 250;
+                milk = 0;
+            } else if ($(`.cupSize`).text() == `350ml`) {
+                water = 350;
+                milk = 0;
+            }
+        } else if ($(`.nameCoffee`).text() == `Латте`) {
+            if ($(`.cupSize`).text() == `150ml`) {
+                water = 30;
+                milk = 120;
+            } else if ($(`.cupSize`).text() == `250ml`) {
+                water = 50;
+                milk = 200;
+            } else if ($(`.cupSize`).text() == `350ml`) {
+                water = 60;
+                milk = 290;
+            }
+        } else if ($(`.nameCoffee`).text() == `Капучино`) {
+            if ($(`.cupSize`).text() == `150ml`) {
+                water = 30;
+                milk = 120;
+            } else if ($(`.cupSize`).text() == `250ml`) {
+                water = 50;
+                milk = 200;
+            } else if ($(`.cupSize`).text() == `350ml`) {
+                water = 60;
+                milk = 290;
+            }
+        } else if ($(`.nameCoffee`).text() == `Американо`) {
+            if ($(`.cupSize`).text() == `150ml`) {
+                water = 150;
+                milk = 0;
+            } else if ($(`.cupSize`).text() == `250ml`) {
+                water = 250;
+                milk = 0;
+            } else if ($(`.cupSize`).text() == `350ml`) {
+                water = 350;
+                milk = 0;
+            }
+        } else if ($(`.nameCoffee`).text() == `Мокко`) {
+            if ($(`.cupSize`).text() == `150ml`) {
+                water = 30;
+                milk = 120;
+            } else if ($(`.cupSize`).text() == `250ml`) {
+                water = 50;
+                milk = 200;
+            } else if ($(`.cupSize`).text() == `350ml`) {
+                water = 60;
+                milk = 290;
+            }
+        }
+        // coffeeMachine = new CoffeeMachine(coffeeMachinePower, coffeeMachineWater, coffeeMachineMilk, water, milk);
+        coffeeMachine = new CoffeeMachine(5000, 2100, 2100, water, milk);
+        coffeeMachine.run();
+        $(`.progress`).css(`animation`, `progress ${(totalBoilTime / 1000)+1}s linear 1`);
+    } else if ($('.pause').css('display') === 'flex') {
+        if ($('.progress').css(`animation-play-state`) == `running`) {
+            $('.progress').css(`animation-play-state`, `paused`);
+            coffeeMachine.stop();
+        } else if ($('.progress').css(`animation-play-state`) == `paused`) {
+            $('.progress').css(`animation-play-state`, `running`);
+            coffeeMachine.run();
+        }
     }
 });

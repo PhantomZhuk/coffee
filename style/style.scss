@@ -2020,7 +2020,41 @@
                                 }
                             }
 
+                            .startupScreen {
+                                width: 100%;
+                                height: 100%;
+                                display: none;
+                                justify-content: center;
+                                align-items: center;
 
+
+                                svg {
+                                    width: 200px;
+                                    height: 200px;
+
+                                    .progress {
+                                        stroke-dasharray: 1257 1400;
+                                    }
+
+                                    .pause {
+                                        display: none;
+                                    }
+
+                                    .play {
+                                        display: flex;
+                                    }
+
+                                    @keyframes progress {
+                                        from {
+                                            stroke-dasharray: 0 1400;
+                                        }
+
+                                        to {
+                                            stroke-dasharray: 1400 1400;
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
 
