@@ -171,6 +171,9 @@ let milkResidue;
 
 function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, milkAmount) {
     let startCoffeeMachine;
+    let remainingTime;
+    let paused = false;
+    let pauseTime;
 
     this.waterAmount = waterAmount;
     this.milkAmount = milkAmount;
@@ -202,17 +205,37 @@ function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, mi
         $(`.selectionScreen`).css(`display`, `flex`)
         $(`.play`).css(`display`, `flex`)
         $(`.pause`).css(`display`, `none`)
+        $(`.progress`).css(`animation`, `none`);
     }
 
     this.run = function () {
-        totalBoilTime = getBoilWaterTime() + getBoilMilkTime();
-        startCoffeeMachine = setTimeout(onReady, totalBoilTime);
+        if (paused) {
+            startCoffeeMachine = setTimeout(onReady, remainingTime);
+            paused = false;
+        } else {
+            totalBoilTime = getBoilWaterTime() + getBoilMilkTime();
+            startCoffeeMachine = setTimeout(onReady, totalBoilTime);
+            remainingTime = totalBoilTime;
+        }
+
+        const updateRemainingTime = () => {
+            if (!paused) {
+                remainingTime -= 1000; // Віднімаємо 1 секунду
+                if (remainingTime > 0) {
+                    setTimeout(updateRemainingTime, 1000); // Повторюємо кожну секунду
+                }
+            }
+        };
+
+        updateRemainingTime();
     }
 
     this.stop = function () {
         clearTimeout(startCoffeeMachine);
+        paused = true;
     }
 }
+
 
 // coffeeMachine.run();
 
@@ -288,7 +311,7 @@ $(`#progress-svg`).click(() => {
     if ($('.play').css('display') === 'flex') {
         $(`.play`).css(`display`, `none`)
         $(`.pause`).css(`display`, `flex`)
-        
+
         if ($(`.nameCoffee`).text() == `Еспресо`) {
             if ($(`.cupSize`).text() == `150ml`) {
                 water = 150;
@@ -348,7 +371,7 @@ $(`#progress-svg`).click(() => {
         // coffeeMachine = new CoffeeMachine(coffeeMachinePower, coffeeMachineWater, coffeeMachineMilk, water, milk);
         coffeeMachine = new CoffeeMachine(5000, 2100, 2100, water, milk);
         coffeeMachine.run();
-        $(`.progress`).css(`animation`, `progress ${(totalBoilTime / 1000)+1}s linear 1`);
+        $(`.progress`).css(`animation`, `progress ${(totalBoilTime / 1000) + 1}s linear 1`);
     } else if ($('.pause').css('display') === 'flex') {
         if ($('.progress').css(`animation-play-state`) == `running`) {
             $('.progress').css(`animation-play-state`, `paused`);
