@@ -71,26 +71,26 @@ if (presentDay == 0) {
     } else {
         electricity = `gridPower`
     }
+}else if (presentDay == 2){
+    if (hours > 1 && hours < 4 || hours > 5 && hours < 9 || hours > 9 && hours < 15  || hours > 16 && hours < 22 || hours > 22 && hours < 0) {
+        electricity = `powerPlantElectricity`;
+    }else {
+        electricity = `gridPower`
+    }
+}else if (presentDay == 3){
+    if (hours < 1 || hours > 4 && hours < 7 || hours > 9 && hours < 13  || hours > 15 && hours < 19 || hours > 20 && hours < 0) {
+        electricity = `powerPlantElectricity`;
+    }else {
+        electricity = `gridPower`
+    }
+}else if (presentDay == 4){
+    if (hours > 0 && hours < 2 || hours > 5 && hours < 8 || hours > 10 && hours < 14  || hours > 15 && hours < 20 || hours > 21 && hours < 0) {
+        electricity = `powerPlantElectricity`;
+    }else {
+        electricity = `gridPower`
+    }
 }
-// else if (presentDay == 2){
-//     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-//         electricity = `powerPlantElectricity`;
-//     }else {
-//         electricity = `gridPower`
-//     }
-// }else if (presentDay == 3){
-//     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-//         electricity = `powerPlantElectricity`;
-//     }else {
-//         electricity = `gridPower`
-//     }
-// }else if (presentDay == 4){
-//     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-//         electricity = `powerPlantElectricity`;
-//     }else {
-//         electricity = `gridPower`
-//     }
-// }else if (presentDay == 5){
+// else if (presentDay == 5){
 //     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
 //         electricity = `powerPlantElectricity`;
 //     }else {
@@ -118,26 +118,26 @@ setInterval(() => {
         } else {
             electricity = `gridPower`
         }
+    }else if (presentDay == 2){
+        if (hours > 1 && hours < 4 || hours > 5 && hours < 9 || hours > 9 && hours < 15  || hours > 16 && hours < 22 || hours > 22 && hours < 0) {
+            electricity = `powerPlantElectricity`;
+        }else {
+            electricity = `gridPower`
+        }
+    }else if (presentDay == 3){
+        if (hours < 1 || hours > 4 && hours < 7 || hours > 9 && hours < 13  || hours > 15 && hours < 19 || hours > 20 && hours < 0) {
+            electricity = `powerPlantElectricity`;
+        }else {
+            electricity = `gridPower`
+        }
+    }else if (presentDay == 4){
+        if (hours > 0 && hours < 2 || hours > 5 && hours < 8 || hours > 10 && hours < 14  || hours > 15 && hours < 20 || hours > 21 && hours < 0) {
+            electricity = `powerPlantElectricity`;
+        }else {
+            electricity = `gridPower`
+        }
     }
-    // else if (presentDay == 2){
-    //     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-    //         electricity = `powerPlantElectricity`;
-    //     }else {
-    //         electricity = `gridPower`
-    //     }
-    // }else if (presentDay == 3){
-    //     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-    //         electricity = `powerPlantElectricity`;
-    //     }else {
-    //         electricity = `gridPower`
-    //     }
-    // }else if (presentDay == 4){
-    //     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-    //         electricity = `powerPlantElectricity`;
-    //     }else {
-    //         electricity = `gridPower`
-    //     }
-    // }else if (presentDay == 5){
+    // else if (presentDay == 5){
     //     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
     //         electricity = `powerPlantElectricity`;
     //     }else {

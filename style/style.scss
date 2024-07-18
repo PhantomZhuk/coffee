@@ -17,7 +17,7 @@
         height: 100vh;
         background-position: center;
         background-size: cover;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
 
@@ -1835,7 +1835,7 @@
     .homePage {
         width: 100%;
         min-height: 100vh;
-        display: none;
+        display: flex;
         justify-content: space-between;
         align-items: center;
         background-position: center;
