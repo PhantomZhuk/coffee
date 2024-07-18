@@ -417,3 +417,65 @@ $(`#progress-svg`).click(() => {
     }
 });
 
+let consoleOpen = false;
+
+$(document).on('keydown', function (event) {
+    if (event.keyCode === 27) {
+        if (consoleOpen == false) {
+            $(`.consolePopup`).css(`display`, `flex`);
+            $(`#controleInput`).focus();
+            consoleOpen = true;
+        } else if (consoleOpen == true) {
+            $(`.consolePopup`).css(`display`, `none`);
+            consoleOpen = false;
+        }
+    }
+});
+
+$(`#controleInput`).on(`input`, () => {
+    $(document).keypress(function (e) {
+        if (e.keyCode === 13) {
+            if ($(`#controleInput`).val() == `water_refill`) {
+                if (podilutu == 2) {
+                    coffeeMachineWater = 700;
+                    $(`.consolePopup`).css(`display`, `none`);
+                    consoleOpen = false;
+                    $(`.water`).css(`height`, `${coffeeMachineWater / podilutu}px`);
+                    $(`#controleInput`).val(``);
+                } else if (podilutu == 4) {
+                    coffeeMachineWater = 1400;
+                    $(`.consolePopup`).css(`display`, `none`);
+                    consoleOpen = false;
+                    $(`.water`).css(`height`, `${coffeeMachineWater / podilutu}px`);
+                    $(`#controleInput`).val(``);
+                } else if (podilutu == 6) {
+                    coffeeMachineWater = 2100;
+                    $(`.consolePopup`).css(`display`, `none`);
+                    consoleOpen = false;
+                    $(`.water`).css(`height`, `${coffeeMachineWater / podilutu}px`);
+                    $(`#controleInput`).val(``);
+                }
+            } else if ($(`#controleInput`).val() == `milk_refill`) {
+                if (podilutu == 2) {
+                    $(`.consolePopup`).css(`display`, `none`);
+                    consoleOpen = false;
+                    coffeeMachineMilk = 700;
+                    $(`.milk`).css(`height`, `${coffeeMachineMilk / podilutu}px`);
+                    $(`#controleInput`).val(``);
+                } else if (podilutu == 4) {
+                    $(`.consolePopup`).css(`display`, `none`);
+                    consoleOpen = false;
+                    coffeeMachineMilk = 1400;
+                    $(`.milk`).css(`height`, `${coffeeMachineMilk / podilutu}px`); 
+                    $(`#controleInput`).val(``);
+                } else if (podilutu == 6) {
+                    $(`.consolePopup`).css(`display`, `none`);
+                    consoleOpen = false;
+                    coffeeMachineMilk = 2100;
+                    $(`.milk`).css(`height`, `${coffeeMachineMilk / podilutu}px`);
+                    $(`#controleInput`).val(``);
+                }
+            }
+        }
+    })
+});
