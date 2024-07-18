@@ -1671,7 +1671,7 @@
   align-items: center;
   color: #fff;
   font-size: 28px;
-  padding-right: 100px;
+  padding-right: 70px;
 }
 .wrap .homePage .powerStationContainer .powerStationWire {
   position: absolute;
@@ -1836,7 +1836,7 @@
     stroke-dasharray: 0 1400;
   }
   to {
-    stroke-dasharray: 1400 1400;
+    stroke-dasharray: 1257 1400;
   }
 }
 .wrap .homePage .coffeeMachine .coffeeMachine_box .mainBlock .topContainer .screenContainer .notificationScreen {

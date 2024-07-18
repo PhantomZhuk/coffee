@@ -21,10 +21,10 @@ let coffeeMachineWater;
 let coffeeMachineMilk;
 let podilutu;
 
-// coffeeMachinePower = 5000;
-// coffeeMachineWater = 700;
-// coffeeMachineMilk = 700;
-// podilutu = 2;
+coffeeMachinePower = 2000;
+coffeeMachineWater = 700;
+coffeeMachineMilk = 700;
+podilutu = 2;
 
 $(`#coffeeMachine_5000`).dblclick(() => {
     $(`.stratPage`).css(`display`, `none`);
@@ -71,22 +71,22 @@ if (presentDay == 0) {
     } else {
         electricity = `gridPower`
     }
-}else if (presentDay == 2){
-    if (hours > 1 && hours < 4 || hours > 5 && hours < 9 || hours > 9 && hours < 15  || hours > 16 && hours < 22 || hours > 22 && hours < 0) {
+} else if (presentDay == 2) {
+    if (hours > 1 && hours < 4 || hours > 5 && hours < 9 || hours > 9 && hours < 15 || hours > 16 && hours < 22 || hours > 22 && hours < 0) {
         electricity = `powerPlantElectricity`;
-    }else {
+    } else {
         electricity = `gridPower`
     }
-}else if (presentDay == 3){
-    if (hours < 1 || hours > 4 && hours < 7 || hours > 9 && hours < 13  || hours > 15 && hours < 19 || hours > 20 && hours < 0) {
+} else if (presentDay == 3) {
+    if (hours < 1 || hours > 4 && hours < 7 || hours > 9 && hours < 13 || hours > 15 && hours < 19 || hours > 20 && hours < 0) {
         electricity = `powerPlantElectricity`;
-    }else {
+    } else {
         electricity = `gridPower`
     }
-}else if (presentDay == 4){
-    if (hours > 0 && hours < 2 || hours > 5 && hours < 8 || hours > 10 && hours < 14  || hours > 15 && hours < 20 || hours > 21 && hours < 0) {
+} else if (presentDay == 4) {
+    if (hours > 0 && hours < 2 || hours > 5 && hours < 8 || hours > 10 && hours < 14 || hours > 15 && hours < 20 || hours > 21 && hours < 0) {
         electricity = `powerPlantElectricity`;
-    }else {
+    } else {
         electricity = `gridPower`
     }
 }
@@ -118,22 +118,22 @@ setInterval(() => {
         } else {
             electricity = `gridPower`
         }
-    }else if (presentDay == 2){
-        if (hours > 1 && hours < 4 || hours > 5 && hours < 9 || hours > 9 && hours < 15  || hours > 16 && hours < 22 || hours > 22 && hours < 0) {
+    } else if (presentDay == 2) {
+        if (hours > 1 && hours < 4 || hours > 5 && hours < 9 || hours > 9 && hours < 15 || hours > 16 && hours < 22 || hours > 22 && hours < 0) {
             electricity = `powerPlantElectricity`;
-        }else {
+        } else {
             electricity = `gridPower`
         }
-    }else if (presentDay == 3){
-        if (hours < 1 || hours > 4 && hours < 7 || hours > 9 && hours < 13  || hours > 15 && hours < 19 || hours > 20 && hours < 0) {
+    } else if (presentDay == 3) {
+        if (hours < 1 || hours > 4 && hours < 7 || hours > 9 && hours < 13 || hours > 15 && hours < 19 || hours > 20 && hours < 0) {
             electricity = `powerPlantElectricity`;
-        }else {
+        } else {
             electricity = `gridPower`
         }
-    }else if (presentDay == 4){
-        if (hours > 0 && hours < 2 || hours > 5 && hours < 8 || hours > 10 && hours < 14  || hours > 15 && hours < 20 || hours > 21 && hours < 0) {
+    } else if (presentDay == 4) {
+        if (hours > 0 && hours < 2 || hours > 5 && hours < 8 || hours > 10 && hours < 14 || hours > 15 && hours < 20 || hours > 21 && hours < 0) {
             electricity = `powerPlantElectricity`;
-        }else {
+        } else {
             electricity = `gridPower`
         }
     }
@@ -181,10 +181,14 @@ let milkResidue;
 let totalWater;
 let totalMilk;
 
+let batteryLocalStorage = JSON.parse(localStorage.getItem('batteryLocalStorage')) || 100;
+$(`.battery`).text(`${batteryLocalStorage.toFixed(2)}%`);
+
 function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, milkAmount) {
     let startCoffeeMachine;
     let remainingTime;
     let paused = false;
+    let batteryReduction;
 
     this.waterAmount = waterAmount;
     this.milkAmount = milkAmount;
@@ -220,6 +224,7 @@ function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, mi
         setTimeout(() => {
             $(`.coffee`).css(`display`, `none`);
         }, 2000);
+        clearTimeout(batteryReduction)
     }
 
     this.run = function () {
@@ -229,7 +234,15 @@ function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, mi
         } else {
             if (coffeeMachineWater >= 150 && coffeeMachineMilk >= 150) {
                 totalBoilTime = getBoilWaterTime() + getBoilMilkTime();
+                console.log(totalBoilTime);
                 startCoffeeMachine = setTimeout(onReady, totalBoilTime);
+                if (electricity == `powerPlantElectricity`) {
+                    batteryReduction = setInterval(() => {
+                        batteryLocalStorage = batteryLocalStorage - 0.05556;
+                        localStorage.setItem('batteryLocalStorage', JSON.stringify(batteryLocalStorage));
+                        $(`.battery`).text(`${batteryLocalStorage.toFixed(2)}%`);
+                    }, 1000);
+                }
                 remainingTime = totalBoilTime;
                 coffeeMachineWater = coffeeMachineWater - this.waterAmount
                 coffeeMachineMilk = coffeeMachineMilk - this.milkAmount
@@ -403,3 +416,4 @@ $(`#progress-svg`).click(() => {
         }
     }
 });
+
