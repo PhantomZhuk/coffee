@@ -19,6 +19,12 @@ $(`#coffeeMachine_1500`).click(() => {
 let coffeeMachinePower;
 let coffeeMachineWater;
 let coffeeMachineMilk;
+let podilutu;
+
+// coffeeMachinePower = 5000;
+// coffeeMachineWater = 700;
+// coffeeMachineMilk = 700;
+// podilutu = 2;
 
 $(`#coffeeMachine_5000`).dblclick(() => {
     $(`.stratPage`).css(`display`, `none`);
@@ -26,6 +32,7 @@ $(`#coffeeMachine_5000`).dblclick(() => {
     coffeeMachinePower = 5000;
     coffeeMachineWater = 2100;
     coffeeMachineMilk = 2100;
+    podilutu = 6;
 });
 
 $(`#coffeeMachine_1500`).dblclick(() => {
@@ -34,6 +41,7 @@ $(`#coffeeMachine_1500`).dblclick(() => {
     coffeeMachinePower = 1500;
     coffeeMachineWater = 700;
     coffeeMachineMilk = 700;
+    podilutu = 2;
 });
 
 $(`#coffeeMachine_3000`).dblclick(() => {
@@ -42,6 +50,7 @@ $(`#coffeeMachine_3000`).dblclick(() => {
     coffeeMachinePower = 3000;
     coffeeMachineWater = 1400;
     coffeeMachineMilk = 1400;
+    podilutu = 4;
 });
 
 let electricity = `gridPower`;//powerPlantElectricity
@@ -169,22 +178,18 @@ let totalBoilTime;
 let waterResidue;
 let milkResidue;
 
+let totalWater;
+let totalMilk;
+
 function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, milkAmount) {
     let startCoffeeMachine;
     let remainingTime;
     let paused = false;
-    let pauseTime;
 
     this.waterAmount = waterAmount;
     this.milkAmount = milkAmount;
     this.totalWaterAmount = totalWaterAmount;
     this.totalMilkAmount = totalMilkAmount;
-
-    waterResidue = this.totalWaterAmount - this.waterAmount
-    milkResidue = this.totalMilkAmount - this.milkAmount
-
-    console.log(waterResidue = waterResidue - this.waterAmount)
-    console.log(milkResidue = milkResidue - this.milkAmount)
 
     const WATER_HEAT_CAPACITY = 4200;
     const MILK_HEAT_CAPACITY = 3900;
@@ -200,12 +205,21 @@ function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, mi
     }.bind(this);
 
     function onReady() {
-        alert(`Кава готова`);
-        $(`.startupScreen`).css(`display`, `none`)
-        $(`.selectionScreen`).css(`display`, `flex`)
+        $(`.startupScreen`).css(`display`, `none`);
+        $(`.notificationScreen`).css(`display`, `flex`);
+        $(`.notification`).text(`Кава приготована, смачного!`);
+        setTimeout(() => {
+            $(`.notificationScreen`).css(`display`, `none`);
+            $(`.notification`).text(``);
+            $(`.selectionScreen`).css(`display`, `flex`);
+        }, 5000);
         $(`.play`).css(`display`, `flex`)
         $(`.pause`).css(`display`, `none`)
         $(`.progress`).css(`animation`, `none`);
+        $(`.coffee`).css(`display`, `flex`);
+        setTimeout(() => {
+            $(`.coffee`).css(`display`, `none`);
+        }, 2000);
     }
 
     this.run = function () {
@@ -213,31 +227,39 @@ function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, mi
             startCoffeeMachine = setTimeout(onReady, remainingTime);
             paused = false;
         } else {
-            totalBoilTime = getBoilWaterTime() + getBoilMilkTime();
-            startCoffeeMachine = setTimeout(onReady, totalBoilTime);
-            remainingTime = totalBoilTime;
+            if (coffeeMachineWater >= 150 && coffeeMachineMilk >= 150) {
+                totalBoilTime = getBoilWaterTime() + getBoilMilkTime();
+                startCoffeeMachine = setTimeout(onReady, totalBoilTime);
+                remainingTime = totalBoilTime;
+                coffeeMachineWater = coffeeMachineWater - this.waterAmount
+                coffeeMachineMilk = coffeeMachineMilk - this.milkAmount
+
+                $(`.water`).css(`height`, `${coffeeMachineWater / podilutu}px`);
+                $(`.milk`).css(`height`, `${coffeeMachineMilk / podilutu}px`);
+            } else {
+                $(`.startupScreen`).css(`display`, `none`);
+                $(`.notificationScreen`).css(`display`, `flex`);
+                $(`.notification`).text(`Недостаття кількість води або молока!`);
+            }
         }
 
         const updateRemainingTime = () => {
             if (!paused) {
-                remainingTime -= 1000; // Віднімаємо 1 секунду
+                remainingTime -= 1000;
                 if (remainingTime > 0) {
-                    setTimeout(updateRemainingTime, 1000); // Повторюємо кожну секунду
+                    setTimeout(updateRemainingTime, 1000);
                 }
             }
         };
 
         updateRemainingTime();
-    }
+    }.bind(this);
 
     this.stop = function () {
         clearTimeout(startCoffeeMachine);
         paused = true;
     }
 }
-
-
-// coffeeMachine.run();
 
 
 $(`.nameCoffee`).text(`Еспресо`);
@@ -305,7 +327,7 @@ $(`.chooseSize`).click(() => {
 let water;
 let milk;
 
-let coffeeMachine; // Глобальна змінна для зберігання екземпляра CoffeeMachine
+let coffeeMachine;
 
 $(`#progress-svg`).click(() => {
     if ($('.play').css('display') === 'flex') {
@@ -368,10 +390,9 @@ $(`#progress-svg`).click(() => {
                 milk = 290;
             }
         }
-        // coffeeMachine = new CoffeeMachine(coffeeMachinePower, coffeeMachineWater, coffeeMachineMilk, water, milk);
-        coffeeMachine = new CoffeeMachine(5000, 2100, 2100, water, milk);
+        coffeeMachine = new CoffeeMachine(coffeeMachinePower, coffeeMachineWater, coffeeMachineMilk, water, milk);
         coffeeMachine.run();
-        $(`.progress`).css(`animation`, `progress ${(totalBoilTime / 1000) + 1}s linear 1`);
+        $(`.progress`).css(`animation`, `progress ${(totalBoilTime / 1000) + 2.5}s linear 1`);
     } else if ($('.pause').css('display') === 'flex') {
         if ($('.progress').css(`animation-play-state`) == `running`) {
             $('.progress').css(`animation-play-state`, `paused`);
