@@ -29,7 +29,7 @@ let podilutu;
 $(`#coffeeMachine_5000`).dblclick(() => {
     $(`.stratPage`).css(`display`, `none`);
     $(`.homePage`).css(`display`, `flex`);
-    coffeeMachinePower = 5000;
+    coffeeMachinePower = 50000;
     coffeeMachineWater = 2100;
     coffeeMachineMilk = 2100;
     podilutu = 6;
@@ -38,7 +38,7 @@ $(`#coffeeMachine_5000`).dblclick(() => {
 $(`#coffeeMachine_1500`).dblclick(() => {
     $(`.stratPage`).css(`display`, `none`);
     $(`.homePage`).css(`display`, `flex`);
-    coffeeMachinePower = 1500;
+    coffeeMachinePower = 2000;
     coffeeMachineWater = 700;
     coffeeMachineMilk = 700;
     podilutu = 2;
@@ -47,7 +47,7 @@ $(`#coffeeMachine_1500`).dblclick(() => {
 $(`#coffeeMachine_3000`).dblclick(() => {
     $(`.stratPage`).css(`display`, `none`);
     $(`.homePage`).css(`display`, `flex`);
-    coffeeMachinePower = 3000;
+    coffeeMachinePower = 15000;
     coffeeMachineWater = 1400;
     coffeeMachineMilk = 1400;
     podilutu = 4;
@@ -212,7 +212,7 @@ function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, mi
             $(`.notificationScreen`).css(`display`, `none`);
             $(`.notification`).text(``);
             $(`.selectionScreen`).css(`display`, `flex`);
-        }, 5000);
+        }, 4000);
         $(`.play`).css(`display`, `flex`)
         $(`.pause`).css(`display`, `none`)
         $(`.progress`).css(`animation`, `none`);
@@ -392,7 +392,7 @@ $(`#progress-svg`).click(() => {
         }
         coffeeMachine = new CoffeeMachine(coffeeMachinePower, coffeeMachineWater, coffeeMachineMilk, water, milk);
         coffeeMachine.run();
-        $(`.progress`).css(`animation`, `progress ${(totalBoilTime / 1000) + 2.5}s linear 1`);
+        $(`.progress`).css(`animation`, `progress ${(totalBoilTime / 1000)}s linear 1`);
     } else if ($('.pause').css('display') === 'flex') {
         if ($('.progress').css(`animation-play-state`) == `running`) {
             $('.progress').css(`animation-play-state`, `paused`);
