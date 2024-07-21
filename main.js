@@ -21,18 +21,15 @@ let coffeeMachineWater;
 let coffeeMachineMilk;
 let podilutu;
 
-coffeeMachinePower = 2000;
-coffeeMachineWater = 700;
-coffeeMachineMilk = 700;
-podilutu = 2;
-
 $(`#coffeeMachine_5000`).dblclick(() => {
-    $(`.stratPage`).css(`display`, `none`);
-    $(`.homePage`).css(`display`, `flex`);
-    coffeeMachinePower = 50000;
-    coffeeMachineWater = 2100;
-    coffeeMachineMilk = 2100;
-    podilutu = 6;
+    if ($(`#lock5000`).hasClass(`lockNone`)) {
+        $(`.stratPage`).css(`display`, `none`);
+        $(`.homePage`).css(`display`, `flex`);
+        coffeeMachinePower = 50000;
+        coffeeMachineWater = 2100;
+        coffeeMachineMilk = 2100;
+        podilutu = 6;
+    }
 });
 
 $(`#coffeeMachine_1500`).dblclick(() => {
@@ -45,12 +42,14 @@ $(`#coffeeMachine_1500`).dblclick(() => {
 });
 
 $(`#coffeeMachine_3000`).dblclick(() => {
-    $(`.stratPage`).css(`display`, `none`);
-    $(`.homePage`).css(`display`, `flex`);
-    coffeeMachinePower = 15000;
-    coffeeMachineWater = 1400;
-    coffeeMachineMilk = 1400;
-    podilutu = 4;
+    if ($(`#lock3000`).hasClass(`lockNone`)) {
+        $(`.stratPage`).css(`display`, `none`);
+        $(`.homePage`).css(`display`, `flex`);
+        coffeeMachinePower = 15000;
+        coffeeMachineWater = 1400;
+        coffeeMachineMilk = 1400;
+        podilutu = 4;
+    }
 });
 
 let electricity = `gridPower`;//powerPlantElectricity
@@ -89,21 +88,19 @@ if (presentDay == 0) {
     } else {
         electricity = `gridPower`
     }
+} else if (presentDay == 5) {
+    if (hours > 0 && hours < 2 || hours > 6 && hours < 8 || hours > 12 && hours < 15 || hours > 18 && hours < 21) {
+        electricity = `powerPlantElectricity`;
+    } else {
+        electricity = `gridPower`
+    }
+} else if (presentDay == 6) {
+    if (hours > 5 && hours < 7 || hours > 15 && hours < 17 || hours > 21 && hours < 23) {
+        electricity = `powerPlantElectricity`;
+    } else {
+        electricity = `gridPower`
+    }
 }
-// else if (presentDay == 5){
-//     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-//         electricity = `powerPlantElectricity`;
-//     }else {
-//         electricity = `gridPower`
-//     }
-// }else if (presentDay == 6){
-//     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-//         electricity = `powerPlantElectricity`;
-//     }else {
-//         electricity = `gridPower`
-//     }
-// }
-
 
 setInterval(() => {
     if (presentDay == 0) {
@@ -136,21 +133,34 @@ setInterval(() => {
         } else {
             electricity = `gridPower`
         }
+    } else if (presentDay == 5) {
+        if (hours > 0 && hours < 2 || hours > 6 && hours < 8 || hours > 12 && hours < 15 || hours > 18 && hours < 21) {
+            electricity = `powerPlantElectricity`;
+        } else {
+            electricity = `gridPower`
+        }
+    } else if (presentDay == 6) {
+        if (hours > 5 && hours < 7 || hours > 15 && hours < 17 || hours > 21 && hours < 23) {
+            electricity = `powerPlantElectricity`;
+        } else {
+            electricity = `gridPower`
+        }
     }
-    // else if (presentDay == 5){
-    //     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-    //         electricity = `powerPlantElectricity`;
-    //     }else {
-    //         electricity = `gridPower`
-    //     }
-    // }else if (presentDay == 6){
-    //     if (hours > 1 && hours < 4 || hours > 7 && hours < 10 || hours > 13 && hours < 17  || hours > 19 && hours < 23) {
-    //         electricity = `powerPlantElectricity`;
-    //     }else {
-    //         electricity = `gridPower`
-    //     }
-    // }
 }, 60000);
+
+if (electricity == `powerPlantElectricity`) {
+    $(`#lock5000`).removeClass(`lockNone`);
+    $(`#lock3000`).removeClass(`lockNone`);
+    $(`#lock5000`).addClass(`lockFlex`);
+    $(`#lock3000`).addClass(`lockFlex`);
+}
+
+if (electricity == `gridPower`) {
+    $(`#lock5000`).removeClass(`lockFlex`);
+    $(`#lock3000`).removeClass(`lockFlex`);
+    $(`#lock5000`).addClass(`lockNone`);
+    $(`#lock3000`).addClass(`lockNone`);
+}
 
 if (electricity == `gridPower`) {
     $(`.socketWire`).css(`display`, `flex`);
@@ -238,9 +248,13 @@ function CoffeeMachine(power, totalWaterAmount, totalMilkAmount, waterAmount, mi
                 startCoffeeMachine = setTimeout(onReady, totalBoilTime);
                 if (electricity == `powerPlantElectricity`) {
                     batteryReduction = setInterval(() => {
-                        batteryLocalStorage = batteryLocalStorage - 0.05556;
-                        localStorage.setItem('batteryLocalStorage', JSON.stringify(batteryLocalStorage));
-                        $(`.battery`).text(`${batteryLocalStorage.toFixed(2)}%`);
+                        if (batteryLocalStorage > 0) {
+                            batteryLocalStorage = batteryLocalStorage - 0.05556;
+                            localStorage.setItem('batteryLocalStorage', JSON.stringify(batteryLocalStorage));
+                            $(`.battery`).text(`${batteryLocalStorage.toFixed(2)}%`);
+                        }else {
+                            console.error(`the station is discharged`)
+                        }
                     }, 1000);
                 }
                 remainingTime = totalBoilTime;
@@ -466,7 +480,7 @@ $(`#controleInput`).on(`input`, () => {
                     $(`.consolePopup`).css(`display`, `none`);
                     consoleOpen = false;
                     coffeeMachineMilk = 1400;
-                    $(`.milk`).css(`height`, `${coffeeMachineMilk / podilutu}px`); 
+                    $(`.milk`).css(`height`, `${coffeeMachineMilk / podilutu}px`);
                     $(`#controleInput`).val(``);
                 } else if (podilutu == 6) {
                     $(`.consolePopup`).css(`display`, `none`);
@@ -475,7 +489,20 @@ $(`#controleInput`).on(`input`, () => {
                     $(`.milk`).css(`height`, `${coffeeMachineMilk / podilutu}px`);
                     $(`#controleInput`).val(``);
                 }
-            }
+            } else if ($(`#controleInput`).val() == `charge_station`){
+                if (electricity == `gridPower`) {
+                    batteryReduction = setInterval(() => {
+                        if (batteryLocalStorage < 100) {
+                            batteryLocalStorage = batteryLocalStorage + 0.0556;
+                            localStorage.setItem('batteryLocalStorage', JSON.stringify(batteryLocalStorage));
+                            $(`.battery`).text(`${batteryLocalStorage.toFixed(2)}%`);
+                        }else {
+                            console.error(`The station is discharged`)
+                        }
+                    }, 1000);
+                    $(`.consolePopup`).css(`display`, `none`);
+                }
+            }   
         }
     })
 });
